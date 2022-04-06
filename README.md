@@ -16,6 +16,7 @@ To include the `beta` branch from the upstream repository, use: `git remote add 
 * Disabled Encrypted Media Extensions
 * Disabled Refresh Browser prompt
 * Disabled default browser check
+* Reinstated "Open with..." option when downloading executables
 * Requirement for extension signing can be disabled using `xpinstall.signatures.required`
 * Allowed downgrading Firefox version without resetting your profile (use at your own risk)
 

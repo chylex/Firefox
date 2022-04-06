@@ -565,7 +565,6 @@ nsUnknownContentTypeDialog.prototype = {
     var shouldntRememberChoice =
       mimeType == "application/octet-stream" ||
       mimeType == "application/x-msdownload" ||
-      this.mLauncher.targetFileIsExecutable ||
       // Do not offer to remember text/plain mimetype choices if the file
       // isn't actually a 'plain' text file.
       (isPlain && gReputationService.isBinary(suggestedFileName));
@@ -734,15 +733,7 @@ nsUnknownContentTypeDialog.prototype = {
   openWithDefaultOK() {
     // The checking is different on Windows...
     if (AppConstants.platform == "win") {
-      // Windows presents some special cases.
-      // We need to prevent use of "system default" when the file is
-      // executable (so the user doesn't launch nasty programs downloaded
-      // from the web), and, enable use of "system default" if it isn't
-      // executable (because we will prompt the user for the default app
-      // in that case).
-
-      //  Default is Ok if the file isn't executable (and vice-versa).
-      return !this.mLauncher.targetFileIsExecutable;
+      return true;
     }
     // On other platforms, default is Ok if there is a default app.
     // Note that nsIMIMEInfo providers need to ensure that this holds true
@@ -783,7 +774,6 @@ nsUnknownContentTypeDialog.prototype = {
     var mimeType = this.mLauncher.MIMEInfo.MIMEType;
     var openHandler = this.dialogElement("openHandler");
     if (
-      this.mLauncher.targetFileIsExecutable ||
       ((mimeType == "application/octet-stream" ||
         mimeType == "application/x-msdos-program" ||
         mimeType == "application/x-msdownload") &&
@@ -834,6 +824,7 @@ nsUnknownContentTypeDialog.prototype = {
     if (
       this.mLauncher.MIMEInfo.preferredAction ==
       this.nsIMIMEInfo.useSystemDefault
+      || this.mLauncher.targetFileIsExecutable
     ) {
       // Open (using system default).
       modeGroup.selectedItem = this.dialogElement("open");

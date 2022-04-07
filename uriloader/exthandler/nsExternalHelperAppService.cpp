@@ -293,94 +293,13 @@ static nsresult GetDownloadDirectory(nsIFile** _directory,
   return NS_ERROR_FAILURE;
 #endif
 
-  bool usePrefDir =
-      StaticPrefs::browser_download_improvements_to_download_panel();
 #ifdef XP_MACOSX
   usePrefDir = true;
 #endif
 
   nsCOMPtr<nsIFile> dir;
   nsresult rv;
-  if (usePrefDir) {
-    // Try to get the users download location, if it's set.
-    switch (Preferences::GetInt(NS_PREF_DOWNLOAD_FOLDERLIST, -1)) {
-      case NS_FOLDER_VALUE_DESKTOP:
-        (void)NS_GetSpecialDirectory(NS_OS_DESKTOP_DIR, getter_AddRefs(dir));
-        break;
-      case NS_FOLDER_VALUE_CUSTOM: {
-        Preferences::GetComplex(NS_PREF_DOWNLOAD_DIR, NS_GET_IID(nsIFile),
-                                getter_AddRefs(dir));
-        if (!dir) break;
-
-        // If we're not checking for availability we're done.
-        if (aSkipChecks) {
-          dir.forget(_directory);
-          return NS_OK;
-        }
-
-        // We have the directory, and now we need to make sure it exists
-        nsresult rv = dir->Create(nsIFile::DIRECTORY_TYPE, 0755);
-        // If we can't create this and it's not because the file already
-        // exists, clear out `dir` so we don't return it.
-        if (rv != NS_ERROR_FILE_ALREADY_EXISTS && NS_FAILED(rv)) {
-          dir = nullptr;
-        }
-      } break;
-      case NS_FOLDER_VALUE_DOWNLOADS:
-        // This is just the OS default location, so fall out
-        break;
-    }
-    if (!dir) {
-      rv = NS_GetSpecialDirectory(NS_OS_DEFAULT_DOWNLOAD_DIR,
-                                  getter_AddRefs(dir));
-      if (NS_FAILED(rv)) {
-        // On some OSes, there is no guarantee this directory exists.
-        // Fall back to $HOME + Downloads.
-        if (sFallbackDownloadDir) {
-          sFallbackDownloadDir->Clone(getter_AddRefs(dir));
-        } else {
-          rv = NS_GetSpecialDirectory(NS_OS_HOME_DIR, getter_AddRefs(dir));
-          NS_ENSURE_SUCCESS(rv, rv);
-
-          nsCOMPtr<nsIStringBundleService> bundleService =
-              do_GetService(NS_STRINGBUNDLE_CONTRACTID, &rv);
-          NS_ENSURE_SUCCESS(rv, rv);
-          nsAutoString downloadLocalized;
-          nsCOMPtr<nsIStringBundle> downloadBundle;
-          rv = bundleService->CreateBundle(
-              "chrome://mozapps/locale/downloads/downloads.properties",
-              getter_AddRefs(downloadBundle));
-          if (NS_SUCCEEDED(rv)) {
-            rv = downloadBundle->GetStringFromName("DownloadsFolder",
-                                                   downloadLocalized);
-          }
-          if (NS_FAILED(rv)) {
-            downloadLocalized.AssignLiteral("Downloads");
-          }
-          rv = dir->Append(downloadLocalized);
-          NS_ENSURE_SUCCESS(rv, rv);
-          // Can't getter_AddRefs on StaticRefPtr, so do some copying.
-          nsCOMPtr<nsIFile> copy;
-          dir->Clone(getter_AddRefs(copy));
-          sFallbackDownloadDir = copy.forget();
-          ClearOnShutdown(&sFallbackDownloadDir);
-        }
-        if (aSkipChecks) {
-          dir.forget(_directory);
-          return NS_OK;
-        }
-
-        // We have the directory, and now we need to make sure it exists
-        rv = dir->Create(nsIFile::DIRECTORY_TYPE, 0755);
-        if (rv == NS_ERROR_FILE_ALREADY_EXISTS || NS_SUCCEEDED(rv)) {
-          dir.forget(_directory);
-          rv = NS_OK;
-        }
-        return rv;
-      }
-      NS_ENSURE_SUCCESS(rv, rv);
-    }
-  } else {
+  if (true) {
     rv = NS_GetSpecialDirectory(NS_OS_TEMP_DIR, getter_AddRefs(dir));
     NS_ENSURE_SUCCESS(rv, rv);
 
@@ -1940,8 +1859,7 @@ NS_IMETHODIMP nsExternalAppHandler::OnStartRequest(nsIRequest* request) {
 
   bool forcePrompt =
       mReason == nsIHelperAppLauncherDialog::REASON_TYPESNIFFED ||
-      (mReason == nsIHelperAppLauncherDialog::REASON_SERVERREQUEST &&
-       !StaticPrefs::browser_download_improvements_to_download_panel());
+      mReason == nsIHelperAppLauncherDialog::REASON_SERVERREQUEST;
 
   // OK, now check why we're here
   if (!alwaysAsk && forcePrompt) {
@@ -1950,9 +1868,7 @@ NS_IMETHODIMP nsExternalAppHandler::OnStartRequest(nsIRequest* request) {
     alwaysAsk = (action != nsIMIMEInfo::saveToDisk);
   }
 
-  bool shouldAutomaticallyHandleInternally =
-      action == nsIMIMEInfo::handleInternally &&
-      StaticPrefs::browser_download_improvements_to_download_panel();
+  bool shouldAutomaticallyHandleInternally = false;
 
   // If we're not asking, check we actually know what to do:
   if (!alwaysAsk) {
@@ -2713,8 +2629,7 @@ void nsExternalAppHandler::RequestSaveDestination(
 NS_IMETHODIMP nsExternalAppHandler::PromptForSaveDestination() {
   if (mCanceled) return NS_OK;
 
-  if (!StaticPrefs::browser_download_improvements_to_download_panel() ||
-      mForceSave) {
+  if (mForceSave) {
     mMimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);
   }
 
@@ -2742,9 +2657,7 @@ nsresult nsExternalAppHandler::ContinueSave(nsIFile* aNewFileLocation) {
 
   int32_t action = nsIMIMEInfo::saveToDisk;
   mMimeInfo->GetPreferredAction(&action);
-  mHandleInternally =
-      action == nsIMIMEInfo::handleInternally &&
-      StaticPrefs::browser_download_improvements_to_download_panel();
+  mHandleInternally = false;
 
   nsresult rv = NS_OK;
   nsCOMPtr<nsIFile> fileToUse = aNewFileLocation;
@@ -2842,10 +2755,7 @@ NS_IMETHODIMP nsExternalAppHandler::SetDownloadToLaunch(
   // directory as originally downloaded so the download can be renamed in place
   // later.
   nsCOMPtr<nsIFile> fileToUse;
-  if (aNewFileLocation &&
-      StaticPrefs::browser_download_improvements_to_download_panel()) {
-    fileToUse = aNewFileLocation;
-  } else {
+  if (true) {
     (void)GetDownloadDirectory(getter_AddRefs(fileToUse));
 
     if (mSuggestedFileName.IsEmpty()) {

@@ -357,14 +357,8 @@ class ChromeActions {
 
     // If the download was triggered from the ctrl/cmd+s or "Save Page As"
     // or the download button, launch the "Save As" dialog.
-    const saveOnDownload = getBoolPref(
-      "browser.download.improvements_to_download_panel",
-      false
-    );
-
     if (
-      data.sourceEventType == "save" ||
-      (saveOnDownload && data.sourceEventType == "download")
+      data.sourceEventType == "save"
     ) {
       let actor = getActor(this.domWindow);
       actor.sendAsyncMessage("PDFJS:Parent:saveURL", {

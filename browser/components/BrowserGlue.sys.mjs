@@ -4263,17 +4263,10 @@ BrowserGlue.prototype = {
       // stored already. Users who wanted this behavior would have disabled the
       // experimental pref browser.download.improvements_to_download_panel so we
       // can migrate its inverted value to this new pref.
-      if (
-        !Services.prefs.getBoolPref(
-          "browser.download.improvements_to_download_panel",
-          true
-        )
-      ) {
         Services.prefs.setBoolPref(
           "browser.download.always_ask_before_handling_new_types",
           true
         );
-      }
     }
 
     // Bug 1769071: The UI Version 127 was used for a clean up code that is not
@@ -4286,17 +4279,10 @@ BrowserGlue.prototype = {
       // Users who wanted this behavior would have disabled the experimental
       // pref browser.download.improvements_to_download_panel so we
       // can migrate its inverted value to this new pref.
-      if (
-        !Services.prefs.getBoolPref(
-          "browser.download.improvements_to_download_panel",
-          true
-        )
-      ) {
         Services.prefs.setBoolPref(
           "browser.download.start_downloads_in_tmp_dir",
           true
         );
-      }
     }
 
     function migrateXULAttributeToStyle(url, id, attr) {

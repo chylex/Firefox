@@ -95,9 +95,7 @@ already_AddRefed<nsMIMEInfoBase> nsGNOMERegistry::GetFromType(
 
   mimeInfo->SetDefaultDescription(name);
 
-  mozilla::StaticPrefs::browser_download_improvements_to_download_panel()
-      ? mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk)
-      : mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
+  mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
   mimeInfo->SetDescription(NS_ConvertUTF8toUTF16(description));
 
   return mimeInfo.forget();

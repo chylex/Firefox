@@ -418,11 +418,7 @@ HandlerService.prototype = {
     if (
       handlerInfo.preferredAction == saveToDisk ||
       handlerInfo.preferredAction == useSystemDefault ||
-      handlerInfo.preferredAction == handleInternally ||
-      // For files (ie mimetype rather than protocol handling info), ensure
-      // we can store the "always ask" state, too:
-      (handlerInfo.preferredAction == alwaysAsk &&
-        this._isMIMEInfo(handlerInfo))
+      handlerInfo.preferredAction == handleInternally
     ) {
       storedHandlerInfo.action = handlerInfo.preferredAction;
     } else {

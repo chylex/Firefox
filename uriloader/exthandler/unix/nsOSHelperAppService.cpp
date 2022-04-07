@@ -1288,7 +1288,7 @@ already_AddRefed<nsMIMEInfoBase> nsOSHelperAppService::GetFromExtension(
 
     if (NS_SUCCEEDED(rv)) {
       mimeInfo->SetDefaultApplication(handlerFile);
-      mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);
+      mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
       mimeInfo->SetDefaultDescription(handler);
     }
   }
@@ -1404,7 +1404,7 @@ already_AddRefed<nsMIMEInfoBase> nsOSHelperAppService::GetFromType(
 
   if (NS_SUCCEEDED(rv)) {
     mimeInfo->SetDefaultApplication(handlerFile);
-    mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);
+    mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
     mimeInfo->SetDefaultDescription(handler);
   } else {
     mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);

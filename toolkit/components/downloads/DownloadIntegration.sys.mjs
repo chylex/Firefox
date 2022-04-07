@@ -556,7 +556,11 @@ export var DownloadIntegration = {
     // opened read-only with an external application.
     try {
       let isTemporaryDownload =
-        aDownload.launchWhenSucceeded && aDownload.source.isPrivate;
+        aDownload.launchWhenSucceeded &&
+        (aDownload.source.isPrivate ||
+          (Services.prefs.getBoolPref(
+            "browser.helperApps.deleteTempFileOnExit"
+          )));
       // Permanently downloaded files are made accessible by other users on
       // this system, while temporary downloads are marked as read-only.
       let unixMode;

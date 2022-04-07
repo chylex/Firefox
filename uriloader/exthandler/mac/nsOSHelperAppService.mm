@@ -504,8 +504,7 @@ nsresult nsOSHelperAppService::GetMIMEInfoFromOS(const nsACString& aMIMEType,
     }
 
     mimeInfoMac->SetDefaultApplication(app);
-    mimeInfoMac->SetPreferredAction(nsIMIMEInfo::saveToDisk);
-
+    mimeInfoMac->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
   } else {
     mimeInfoMac->SetPreferredAction(nsIMIMEInfo::saveToDisk);
   }

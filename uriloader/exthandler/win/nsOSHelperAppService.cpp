@@ -367,7 +367,7 @@ already_AddRefed<nsMIMEInfoWin> nsOSHelperAppService::GetByExtension(
       NS_ConvertUTF16toUTF8(Substring(aFileExt, dotlessIndex));
   ToLowerCase(lowerFileExt);
   mimeInfo->AppendExtension(lowerFileExt);
-  mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);
+  mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
 
   if (NS_FAILED(InternalSetDefaultsOnMIME(mimeInfo))) {
     return nullptr;

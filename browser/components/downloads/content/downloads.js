@@ -865,11 +865,6 @@ var DownloadsView = {
           command += ":" + openWhere;
         }
       }
-      // Toggle opening the file after the download has completed
-      if (!download.stopped && command.startsWith("downloadsCmd_open")) {
-        download.launchWhenSucceeded = !download.launchWhenSucceeded;
-        download._launchedFromPanel = download.launchWhenSucceeded;
-      }
 
       DownloadsCommon.log("onDownloadClick, resolved command: ", command);
       goDoCommand(command);

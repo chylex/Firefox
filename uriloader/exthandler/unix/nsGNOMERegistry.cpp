@@ -94,7 +94,7 @@ already_AddRefed<nsMIMEInfoBase> nsGNOMERegistry::GetFromType(
 
   mimeInfo->SetDefaultDescription(name);
 
-  mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk);
+  mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
   mimeInfo->SetDescription(NS_ConvertUTF8toUTF16(description));
 
   return mimeInfo.forget();

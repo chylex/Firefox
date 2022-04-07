@@ -513,9 +513,10 @@ nsresult nsOSHelperAppService::GetMIMEInfoFromOS(const nsACString& aMIMEType,
         ::CFRelease(cfAppName);
       }
     }
+    mimeInfoMac->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
+  } else {
+    mimeInfoMac->SetPreferredAction(nsIMIMEInfo::saveToDisk);
   }
-
-  mimeInfoMac->SetPreferredAction(nsIMIMEInfo::saveToDisk);
 
   nsAutoCString mimeType;
   mimeInfoMac->GetMIMEType(mimeType);

@@ -399,7 +399,7 @@ static Result<nsCOMPtr<nsIFile>, nsresult> GetInitialDownloadDirectory(
   return Err(NS_ERROR_FAILURE);
 #endif
 
-  if (StaticPrefs::browser_download_start_downloads_in_tmp_dir()) {
+  if (true) {
     return GetOsTmpDownloadDirectory();
   }
 
@@ -1778,7 +1778,9 @@ NS_IMETHODIMP nsExternalAppHandler::OnStartRequest(nsIRequest* request) {
   int32_t action = nsIMIMEInfo::saveToDisk;
   mMimeInfo->GetPreferredAction(&action);
 
-  bool forcePrompt = mReason == nsIHelperAppLauncherDialog::REASON_TYPESNIFFED;
+  bool forcePrompt =
+      mReason == nsIHelperAppLauncherDialog::REASON_TYPESNIFFED ||
+      mReason == nsIHelperAppLauncherDialog::REASON_SERVERREQUEST;
 
   // OK, now check why we're here
   if (!alwaysAsk && forcePrompt) {
@@ -1787,8 +1789,7 @@ NS_IMETHODIMP nsExternalAppHandler::OnStartRequest(nsIRequest* request) {
     alwaysAsk = (action != nsIMIMEInfo::saveToDisk);
   }
 
-  bool shouldAutomaticallyHandleInternally =
-      action == nsIMIMEInfo::handleInternally;
+  bool shouldAutomaticallyHandleInternally = false;
 
   if (aChannel) {
     uint32_t disposition = -1;
@@ -2537,7 +2538,7 @@ nsresult nsExternalAppHandler::ContinueSave(nsIFile* aNewFileLocation) {
 
   int32_t action = nsIMIMEInfo::saveToDisk;
   mMimeInfo->GetPreferredAction(&action);
-  mHandleInternally = action == nsIMIMEInfo::handleInternally;
+  mHandleInternally = false;
 
   nsresult rv = NS_OK;
   nsCOMPtr<nsIFile> fileToUse = aNewFileLocation;
@@ -2635,9 +2636,7 @@ NS_IMETHODIMP nsExternalAppHandler::SetDownloadToLaunch(
   // directory as originally downloaded so the download can be renamed in place
   // later.
   nsCOMPtr<nsIFile> fileToUse;
-  if (aNewFileLocation) {
-    fileToUse = aNewFileLocation;
-  } else {
+  if (true) {
     auto res = GetInitialDownloadDirectory();
     if (res.isErr()) return res.unwrapErr();
     fileToUse = res.unwrap();

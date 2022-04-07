@@ -80,17 +80,13 @@ nsMIMEInfoBase::nsMIMEInfoBase(const char* aMIMEType)
     : mSchemeOrType(aMIMEType),
       mClass(eMIMEInfo),
       mPreferredAction(nsIMIMEInfo::saveToDisk),
-      mAlwaysAskBeforeHandling(
-          StaticPrefs::
-              browser_download_always_ask_before_handling_new_types()) {}
+      mAlwaysAskBeforeHandling(true) {}
 
 nsMIMEInfoBase::nsMIMEInfoBase(const nsACString& aMIMEType)
     : mSchemeOrType(aMIMEType),
       mClass(eMIMEInfo),
       mPreferredAction(nsIMIMEInfo::saveToDisk),
-      mAlwaysAskBeforeHandling(
-          StaticPrefs::
-              browser_download_always_ask_before_handling_new_types()) {}
+      mAlwaysAskBeforeHandling(true) {}
 
 // Constructor for a handler that lets the caller specify whether this is a
 // MIME handler or a protocol handler.  In the long run, these will be distinct
@@ -101,10 +97,7 @@ nsMIMEInfoBase::nsMIMEInfoBase(const nsACString& aType, HandlerClass aClass)
     : mSchemeOrType(aType),
       mClass(aClass),
       mPreferredAction(nsIMIMEInfo::saveToDisk),
-      mAlwaysAskBeforeHandling(
-          StaticPrefs::
-              browser_download_always_ask_before_handling_new_types() ||
-          aClass != eMIMEInfo) {}
+      mAlwaysAskBeforeHandling(true) {}
 
 nsMIMEInfoBase::~nsMIMEInfoBase() {}
 

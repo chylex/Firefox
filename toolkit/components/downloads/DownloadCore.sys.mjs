@@ -618,11 +618,7 @@ Download.prototype = {
           new lazy.FileUtils.File(this.target.path)
         );
       } else if (
-        Services.prefs.getBoolPref("browser.helperApps.deleteTempFileOnExit") &&
-        Services.prefs.getBoolPref(
-          "browser.download.start_downloads_in_tmp_dir",
-          false
-        )
+        Services.prefs.getBoolPref("browser.helperApps.deleteTempFileOnExit")
       ) {
         lazy.gExternalAppLauncher.deleteTemporaryFileOnExit(
           new lazy.FileUtils.File(this.target.path)

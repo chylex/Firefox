@@ -16,6 +16,7 @@ To include the `beta` branch from the upstream repository, use: `git remote add 
 * Disabled Encrypted Media Extensions
 * Disabled Refresh Browser prompt
 * Disabled default browser check
+* Removed the "improvements" to download panel, including the profile migration which changes your existing settings
 * Reverted "Open Image in New Tab" back to "View Image"
 * Reinstated "Open with..." option when downloading executables
 * Requirement for extension signing can be disabled using `xpinstall.signatures.required`

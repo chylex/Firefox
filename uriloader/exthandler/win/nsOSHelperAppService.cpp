@@ -378,9 +378,7 @@ already_AddRefed<nsMIMEInfoWin> nsOSHelperAppService::GetByExtension(
       NS_ConvertUTF16toUTF8(Substring(fileExtToUse, 1));
   ToLowerCase(lowerFileExt);
   mimeInfo->AppendExtension(lowerFileExt);
-  mozilla::StaticPrefs::browser_download_improvements_to_download_panel()
-      ? mimeInfo->SetPreferredAction(nsIMIMEInfo::saveToDisk)
-      : mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
+  mimeInfo->SetPreferredAction(nsIMIMEInfo::useSystemDefault);
 
   nsAutoString appInfo;
   bool found;

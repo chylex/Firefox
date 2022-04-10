@@ -1,0 +1,18 @@
+export MOZILLA_OFFICIAL=1
+
+MOZ_REQUIRE_SIGNING=
+MOZ_UPDATE_CHANNEL=aurora
+
+ac_add_options --target=x86_64-pc-mingw32
+
+ac_add_options --enable-bootstrap
+ac_add_options --enable-release
+ac_add_options --enable-application=browser
+ac_add_options --enable-update-channel=aurora
+ac_add_options --with-branding=browser/branding/aurora
+
+ac_add_options --disable-tests
+
+ac_add_options --with-google-location-service-api-keyfile=@TOPSRCDIR@/_keyfiles/google_location_service_api.txt
+ac_add_options --with-google-safebrowsing-api-keyfile=@TOPSRCDIR@/_keyfiles/google_safebrowsing_api.txt
+ac_add_options --with-mozilla-api-keyfile=@TOPSRCDIR@/_keyfiles/mozilla_api.txt

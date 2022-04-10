@@ -49,7 +49,6 @@ ID
 /.clang-tidy
 /.clangd
 /.mozconfig*
-/mozconfig*
 /.moz-fast-forward
 /old-configure
 /config.cache

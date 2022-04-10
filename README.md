@@ -8,7 +8,11 @@ To include the `beta` branch from the upstream repository, use: `git remote add 
 
 ## Changes
 
+* Disabled [Default Browser Agent](https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html)
+* Disabled [Mozilla Maintenance Service](https://support.mozilla.org/en-US/kb/what-mozilla-maintenance-service)
+* Disabled [Normandy](https://mozilla.github.io/normandy/dev/concepts.html) (not tested, might want to disable too `app.normandy.enabled` just in case)
 * Requirement for extension signing can be disabled using `xpinstall.signatures.required`
+* Allowed downgrading Firefox version without resetting your profile (use at your own risk)
 
 ## Building
 

@@ -12,6 +12,8 @@ ac_add_options --enable-update-channel=aurora
 ac_add_options --with-branding=browser/branding/aurora
 
 ac_add_options --disable-tests
+ac_add_options --disable-default-browser-agent
+ac_add_options --disable-maintenance-service
 
 ac_add_options --with-google-location-service-api-keyfile=@TOPSRCDIR@/_keyfiles/google_location_service_api.txt
 ac_add_options --with-google-safebrowsing-api-keyfile=@TOPSRCDIR@/_keyfiles/google_safebrowsing_api.txt

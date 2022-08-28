@@ -22,6 +22,8 @@ Follow instructions for [Building Firefox on Windows](https://firefox-source-doc
 
 After you build the fork with `./mach build`, read [Installer Build](https://firefox-source-docs.mozilla.org/browser/installer/windows/installer/InstallerBuild.html) to build an installer, or [Localized Builds](https://firefox-source-docs.mozilla.org/build/buildsystem/locales.html) to build an installer that includes an alternative language.
 
+You can use the included `chylex.sh` script to run the necessary commands for rebuilding Firefox and creating an English and Czech installer.
+
 ## Using
 
 Note that the default update channel is set to `aurora`, like in official Firefox Developer Edition builds. This is for my convenience, so that I can check the "About Firefox" dialog for the current version. Obviously, you will have to **disable automatic updates** to stop Firefox from replacing your installation.

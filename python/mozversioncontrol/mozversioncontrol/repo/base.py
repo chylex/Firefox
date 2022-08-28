@@ -22,6 +22,9 @@ def get_tool_path(tool: Optional[Union[str, Path]] = None):
     if tool.is_absolute() and tool.exists():
         return str(tool)
 
+    if str(tool) == "hg":
+      return "/c/mozilla-build/python3/scripts/hg"
+    
     path = to_optional_path(which(str(tool)))
     if not path:
         raise MissingVCSTool(

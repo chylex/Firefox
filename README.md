@@ -23,6 +23,8 @@ Follow instructions for [Building Firefox on Windows](https://firefox-source-doc
 
 After you build the fork with `./mach build`, read [Installer Build](https://firefox-source-docs.mozilla.org/browser/installer/windows/installer/InstallerBuild.html) to build an installer, or [Localized Builds](https://firefox-source-docs.mozilla.org/build/buildsystem/locales.html) to build an installer that includes an alternative language.
 
+You can use the included `chylex.sh` script to run the necessary commands for rebuilding Firefox and creating an English and Czech installer.
+
 # Original README
 
 An explanation of the Firefox Source Code Directory Structure and links to

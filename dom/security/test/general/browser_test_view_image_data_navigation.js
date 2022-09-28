@@ -12,7 +12,10 @@ add_task(async function test_principal_right_click_open_link_in_new_tab() {
     getRootDirectory(gTestPath) + "file_view_image_data_navigation.html";
 
   await BrowserTestUtils.withNewTab(TEST_PAGE, async function () {
-    let loadPromise = BrowserTestUtils.waitForNewTab(gBrowser, null, true);
+    let loadPromise = BrowserTestUtils.browserLoaded(
+      gBrowser.selectedBrowser,
+      true
+    );
 
     // simulate right-click->view-image
     BrowserTestUtils.waitForEvent(document, "popupshown", false, event => {
@@ -33,8 +36,6 @@ add_task(async function test_principal_right_click_open_link_in_new_tab() {
       spec.startsWith("data:image/svg+xml;"),
       "data:image/svg navigation allowed through right-click view-image"
     );
-
-    gBrowser.removeTab(tab);
   });
 });
 
@@ -47,7 +48,10 @@ add_task(async function test_right_click_open_bg_image() {
     getRootDirectory(gTestPath) + "file_view_bg_image_data_navigation.html";
 
   await BrowserTestUtils.withNewTab(TEST_PAGE, async function () {
-    let loadPromise = BrowserTestUtils.waitForNewTab(gBrowser, null, true);
+    let loadPromise = BrowserTestUtils.browserLoaded(
+      gBrowser.selectedBrowser,
+      true
+    );
 
     // simulate right-click->view-image
     BrowserTestUtils.waitForEvent(document, "popupshown", false, event => {
@@ -68,7 +72,5 @@ add_task(async function test_right_click_open_bg_image() {
       spec.startsWith("data:image/svg+xml;"),
       "data:image/svg navigation allowed through right-click view-image with background image"
     );
-
-    gBrowser.removeTab(tab);
   });
 });

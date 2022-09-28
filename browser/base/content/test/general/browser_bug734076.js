@@ -21,7 +21,6 @@ add_task(async function() {
       name: "view image with background image",
       url: "http://mochi.test:8888/",
       element: "body",
-      opensNewTab: true,
       go() {
         return SpecialPowers.spawn(
           gBrowser.selectedBrowser,
@@ -49,7 +48,6 @@ add_task(async function() {
       name: "view image",
       url: "http://mochi.test:8888/",
       element: "img",
-      opensNewTab: true,
       go() {
         return SpecialPowers.spawn(
           gBrowser.selectedBrowser,
@@ -164,9 +162,9 @@ add_task(async function() {
     await popupShownPromise;
     info("onImage: " + gContextMenu.onImage);
 
-    let loadedAfterCommandPromise = test.opensNewTab
-      ? BrowserTestUtils.waitForNewTab(gBrowser, null, true)
-      : BrowserTestUtils.browserLoaded(gBrowser.selectedBrowser);
+    let loadedAfterCommandPromise = BrowserTestUtils.browserLoaded(
+      gBrowser.selectedBrowser
+    );
     document.getElementById(commandToRun).click();
     let result = await loadedAfterCommandPromise;
 
@@ -180,10 +178,6 @@ add_task(async function() {
     );
     contentAreaContextMenu.hidePopup();
     await popupHiddenPromise;
-
-    if (test.opensNewTab) {
-      gBrowser.removeCurrentTab();
-    }
   }
 
   gBrowser.removeCurrentTab();

@@ -259,12 +259,12 @@ main-context-menu-image-reload =
     .label = Reload Image
     .accesskey = R
 
-main-context-menu-image-view-new-tab =
-    .label = Open Image in New Tab
+main-context-menu-image-view =
+    .label = View Image
     .accesskey = I
 
-main-context-menu-video-view-new-tab =
-    .label = Open Video in New Tab
+main-context-menu-video-view =
+    .label = View Video
     .accesskey = i
 
 main-context-menu-image-copy =

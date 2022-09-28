@@ -180,9 +180,6 @@
                 data-l10n-id="main-context-menu-media-show-controls"
                 oncommand="gContextMenu.mediaCommand('showcontrols');"/>
       <menuseparator id="context-media-sep-video-commands"/>
-      <menuitem id="context-viewvideo"
-                data-l10n-id="main-context-menu-video-view-new-tab"
-                oncommand="gContextMenu.viewMedia(event);"/>
       <menuitem id="context-video-pictureinpicture"
                 data-l10n-id="main-context-menu-media-watch-pip"
                 type="checkbox"
@@ -192,8 +189,13 @@
                 data-l10n-id="main-context-menu-image-reload"
                 oncommand="gContextMenu.reloadImage();"/>
       <menuitem id="context-viewimage"
-                data-l10n-id="main-context-menu-image-view-new-tab"
-                oncommand="gContextMenu.viewMedia(event);"/>
+                data-l10n-id="main-context-menu-image-view"
+                oncommand="gContextMenu.viewMedia(event);"
+                onclick="checkForMiddleClick(this, event);"/>
+      <menuitem id="context-viewvideo"
+                data-l10n-id="main-context-menu-video-view"
+                oncommand="gContextMenu.viewMedia(event);"
+                onclick="checkForMiddleClick(this, event);"/>
       <menuitem id="context-saveimage"
                 data-l10n-id="main-context-menu-image-save-as"
                 oncommand="gContextMenu.saveMedia();"/>

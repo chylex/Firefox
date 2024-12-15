@@ -289,7 +289,7 @@ pref("browser.touchmode.auto", true);
 pref("browser.compactmode.show", false);
 
 // At startup, check if we're the default browser and prompt user if not.
-pref("browser.shell.checkDefaultBrowser", true);
+pref("browser.shell.checkDefaultBrowser", false);
 pref("browser.shell.shortcutFavicons",true);
 pref("browser.shell.mostRecentDateSetAsDefault", "");
 pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
@@ -2586,7 +2586,7 @@ pref("browser.migrate.preferences-entrypoint.enabled", true);
 pref("extensions.pocket.api", "api.getpocket.com");
 pref("extensions.pocket.bffApi", "firefox-api-proxy.cdn.mozilla.net");
 pref("extensions.pocket.bffRecentSaves", true);
-pref("extensions.pocket.enabled", true);
+pref("extensions.pocket.enabled", false);
 pref("extensions.pocket.oAuthConsumerKey", "40249-e88c401e1b1f2242d9e441c4");
 pref("extensions.pocket.oAuthConsumerKeyBff", "94110-6d5ff7a89d72c869766af0e0");
 pref("extensions.pocket.site", "getpocket.com");
@@ -2669,15 +2669,15 @@ pref("doh-rollout.clearModeOnShutdown", false);
 // Normandy client preferences
 pref("app.normandy.api_url", "https://normandy.cdn.mozilla.net/api/v1");
 pref("app.normandy.dev_mode", false);
-pref("app.normandy.enabled", true);
-pref("app.normandy.first_run", true);
+pref("app.normandy.enabled", false);
+pref("app.normandy.first_run", false);
 pref("app.normandy.logging.level", 50); // Warn
 pref("app.normandy.run_interval_seconds", 21600); // 6 hours
 pref("app.normandy.shieldLearnMoreUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/shield");
 pref("app.normandy.last_seen_buildid", "");
 pref("app.normandy.onsync_skew_sec", 600);
 #ifdef MOZ_DATA_REPORTING
-  pref("app.shield.optoutstudies.enabled", true);
+  pref("app.shield.optoutstudies.enabled", false);
 #else
   pref("app.shield.optoutstudies.enabled", false);
 #endif
@@ -3338,3 +3338,6 @@ pref("toolkit.contentRelevancy.enabled", false);
 pref("toolkit.contentRelevancy.ingestEnabled", false);
 // Pref to enable extra logging for the content relevancy feature
 pref("toolkit.contentRelevancy.log", false);
+
+pref("browser.disableResetPrompt", true);
+pref("media.eme.enabled", false);

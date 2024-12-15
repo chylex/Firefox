@@ -956,7 +956,7 @@ def eme_modules(value):
 
 # Fallback to an empty list when eme_choices is empty, setting eme_modules to
 # None.
-set_config("MOZ_EME_MODULES", eme_modules | dependable([]))
+set_config("MOZ_EME_MODULES", dependable([]))
 
 
 # Media Foundation CDM support

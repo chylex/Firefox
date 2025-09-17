@@ -19,7 +19,6 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   ASRouter: "resource:///modules/asrouter/ASRouter.sys.mjs",
   ShortcutUtils: "resource://gre/modules/ShortcutUtils.sys.mjs",
-  GenAI: "resource:///modules/GenAI.sys.mjs",
 });
 
 /**
@@ -52,7 +51,7 @@ export default class SidebarMain extends MozLitElement {
   get fluentStrings() {
     if (!this._fluentStrings) {
       this._fluentStrings = new Localization(
-        ["browser/sidebar.ftl", "preview/genai.ftl"],
+        ["browser/sidebar.ftl"],
         true
       );
     }
@@ -67,7 +66,6 @@ export default class SidebarMain extends MozLitElement {
     this.contextMenuTarget = null;
     this.expanded = false;
     this.clickCounts = {
-      genai: 0,
       totalToolsMinusGenai: 0,
     };
     this.shouldShowOverflowButton = false;
@@ -84,13 +82,6 @@ export default class SidebarMain extends MozLitElement {
       shortcutId: "viewBookmarksSidebarKb",
       openl10nId: "sidebar-menu-open-bookmarks-tooltip",
       close10nId: "sidebar-menu-close-bookmarks-tooltip",
-    },
-    viewGenaiChatSidebar: {
-      shortcutId: "viewGenaiChatSidebarKb",
-      openl10nId: "sidebar-menu-open-ai-chatbot-tooltip-generic",
-      close10nId: "sidebar-menu-close-ai-chatbot-tooltip-generic",
-      openProviderl10nId: "sidebar-menu-open-ai-chatbot-provider-tooltip",
-      closeProviderl10nId: "sidebar-menu-close-ai-chatbot-provider-tooltip",
     },
   };
 
@@ -356,15 +347,6 @@ export default class SidebarMain extends MozLitElement {
       .forEach(node => node.remove());
 
     const menuBuilders = {
-      aichat: async () => {
-        if (Services.prefs.getBoolPref("browser.ml.chat.page")) {
-          await lazy.GenAI.buildAskChatMenu(this._contextMenu, {
-            browser: window.gBrowser.selectedBrowser,
-            selectionInfo: null,
-            source: "tool",
-          });
-        }
-      },
     };
 
     const builder = menuBuilders[toolId];
@@ -597,8 +579,7 @@ export default class SidebarMain extends MozLitElement {
   };
 
   async checkShouldShowCalloutSurveys(view) {
-    if (view == "viewGenaiChatSidebar") {
-      this.clickCounts.genai++;
+    if (false) {
     } else {
       this.clickCounts.totalToolsMinusGenai++;
     }
@@ -672,15 +653,6 @@ export default class SidebarMain extends MozLitElement {
   }
 
   getEntrypointValues(action) {
-    let providerInfo;
-    if (action.view === "viewGenaiChatSidebar") {
-      providerInfo = lazy.GenAI.currentChatProviderInfo;
-      action.iconUrl = providerInfo.iconUrl;
-      // Sets the tooltip text for the action based on the chatbot provider's name.
-      // This tooltip text is also used to set the action label
-      action.tooltiptext = providerInfo.name;
-    }
-
     if (action.disabled || action.hidden) {
       return null;
     }
@@ -700,17 +672,6 @@ export default class SidebarMain extends MozLitElement {
       const { shortcutId, openl10nId, close10nId } = tooltipInfo;
       let l10nId = isActiveView ? close10nId : openl10nId;
       let tooltipData = {};
-
-      if (action.view === "viewGenaiChatSidebar") {
-        const provider = providerInfo?.name;
-
-        if (provider) {
-          tooltipData.provider = provider;
-          l10nId = isActiveView
-            ? tooltipInfo.closeProviderl10nId
-            : tooltipInfo.openProviderl10nId;
-        }
-      }
 
       if (shortcutId) {
         const shortcut = lazy.ShortcutUtils.prettifyShortcut(

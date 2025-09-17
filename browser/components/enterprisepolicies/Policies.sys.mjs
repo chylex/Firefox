@@ -111,63 +111,6 @@ export var Policies = {
     },
   },
 
-  AIControls: {
-    onBeforeAddons(manager, param) {
-      const features = [
-        [
-          "SidebarChatbot",
-          ["browser.ml.chat.enabled", "browser.ml.chat.page"],
-          "browser.ai.control.sidebarChatbot",
-        ],
-        [
-          "Translations",
-          ["browser.translations.enable"],
-          "browser.ai.control.translations",
-        ],
-        [
-          "PDFAltText",
-          ["pdfjs.enableAltText"],
-          "browser.ai.control.pdfjsAltText",
-        ],
-        [
-          "LinkPreviewKeyPoints",
-          ["browser.ml.linkPreview.enabled"],
-          "browser.ai.control.linkPreviewKeyPoints",
-        ],
-        [
-          "SmartTabGroups",
-          ["browser.tabs.groups.smart.userEnabled"],
-          "browser.ai.control.smartTabGroups",
-        ],
-        ["SmartWindow", [], "browser.ai.control.smartWindow"],
-      ];
-
-      const defaultItem = param.Default;
-      const defaultLocked = defaultItem?.Locked ?? false;
-
-      for (const [key, prefs, aiControlPref] of features) {
-        let item = param[key] ?? defaultItem;
-        if (!item) {
-          continue;
-        }
-        let value = item.Value;
-        let locked = item.Locked ?? defaultLocked;
-        PoliciesUtils.setDefaultPref(aiControlPref, value, locked);
-        for (const pref of prefs) {
-          PoliciesUtils.setDefaultPref(pref, value === "available", locked);
-        }
-      }
-
-      if (defaultItem) {
-        PoliciesUtils.setDefaultPref(
-          "browser.ai.control.default",
-          defaultItem.Value,
-          defaultLocked
-        );
-      }
-    },
-  },
-
   AllowedDomainsForApps: {
     onBeforeAddons(manager, param) {
       Services.obs.addObserver(function (subject) {

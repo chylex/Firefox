@@ -14,8 +14,6 @@
     "about:welcome": "chrome://branding/content/icon32.png",
     "about:privatebrowsing":
       "chrome://browser/skin/privatebrowsing/favicon.svg",
-    "chrome://browser/content/aiwindow/aiWindow.html":
-      "chrome://browser/skin/smart-window-simplified.svg",
   };
 
   const {
@@ -740,19 +738,6 @@
           URILoadingWrapper,
           browser
         );
-
-      if (AIWindow.isAIWindowActive(window)) {
-        let uriToLoad = gBrowserInit.uriToLoadPromise;
-        let firstURI = Array.isArray(uriToLoad) ? uriToLoad[0] : uriToLoad;
-
-        if (!this._allowTransparentBrowser) {
-          browser.toggleAttribute(
-            "transparent",
-            !firstURI ||
-              AIWindow.isAIWindowContentPage(Services.io.newURI(firstURI))
-          );
-        }
-      }
 
       let uniqueId = this._generateUniquePanelID();
       let panel = this.getPanel(browser);
@@ -2811,7 +2796,7 @@
         b.setAttribute("name", name);
       }
 
-      if (AIWindow.isAIWindowActive(window) || this._allowTransparentBrowser) {
+      if (this._allowTransparentBrowser) {
         b.setAttribute("transparent", "true");
       }
 
@@ -9692,8 +9677,7 @@
           if (!gBrowser._allowTransparentBrowser) {
             this.mBrowser.toggleAttribute(
               "transparent",
-              AIWindow.isAIWindowActive(window) &&
-                AIWindow.isAIWindowContentPage(aLocation)
+              false
             );
           }
         }
@@ -10588,12 +10572,6 @@ var TabContextMenu = {
     contextUnpinSelectedTabs.hidden =
       !this.contextTab.pinned || !this.multiselected;
 
-    // Build Ask Chat items
-    TabContextMenu.GenAI.buildTabMenu(
-      document.getElementById("context_askChat"),
-      this
-    );
-
     // Move Tab items
     let contextMoveTabOptions = document.getElementById(
       "context_moveTabOptions"
@@ -11141,6 +11119,5 @@ var TabContextMenu = {
 };
 
 ChromeUtils.defineESModuleGetters(TabContextMenu, {
-  GenAI: "resource:///modules/GenAI.sys.mjs",
   TabNotes: "moz-src:///browser/components/tabnotes/TabNotes.sys.mjs",
 });

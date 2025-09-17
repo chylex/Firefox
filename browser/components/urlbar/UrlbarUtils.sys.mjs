@@ -10,15 +10,12 @@
 /**
  * @import {Query} from "./UrlbarProvidersManager.sys.mjs"
  * @import {SearchEngine} from "moz-src:///toolkit/components/search/SearchEngine.sys.mjs"
- * @import {SmartbarInput} from "chrome://browser/content/urlbar/SmartbarInput.mjs"
  * @import {UrlbarSearchStringTokenData} from "./UrlbarTokenizer.sys.mjs"
  */
 
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 const lazy = XPCOMUtils.declareLazy({
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   BrowserUIUtils: "resource:///modules/BrowserUIUtils.sys.mjs",
   ContextualIdentityService:
     "resource://gre/modules/ContextualIdentityService.sys.mjs",
@@ -599,8 +596,6 @@ export var UrlbarUtils = {
     }
     if (result.heuristic) {
       switch (result.providerName) {
-        case "UrlbarProviderAiChat":
-          return this.RESULT_GROUP.HEURISTIC_AI_CHAT;
         case "UrlbarProviderAliasEngines":
           return this.RESULT_GROUP.HEURISTIC_ENGINE_ALIAS;
         case "UrlbarProviderAutofill":
@@ -1913,8 +1908,6 @@ export var UrlbarUtils = {
     function checkForSubType(type, res) {
       if (res.providerName == "UrlbarProviderInputHistory") {
         type += "_adaptive";
-      } else if (res.providerName == "UrlbarProviderSemanticHistorySearch") {
-        type += "_semantic";
       }
       if (
         lazy.UrlbarSearchUtils.resultIsSERP(res, [
@@ -2191,22 +2184,9 @@ export var UrlbarUtils = {
    *
    * @param {Window} window
    *   The window to get the URL bar for.
-   * @returns {UrlbarInput | SmartbarInput }
-   *   The URL bar element that should be focused.
    */
   getURLBarForFocus(window) {
-    /** @type {UrlbarInput | SmartbarInput} */
     let urlbar = window.gURLBar;
-    // Check if we're in an AI window with immersive view (no address bar visible)
-    if (
-      lazy.AIWindow.isAIWindowActive(window) &&
-      lazy.AIWindow.shouldUseImmersiveView(window.gBrowser.currentURI)
-    ) {
-      let smartbar = lazy.AIWindow.getSmartbarForWindow(window);
-      if (smartbar) {
-        urlbar = smartbar;
-      }
-    }
     return urlbar;
   },
 

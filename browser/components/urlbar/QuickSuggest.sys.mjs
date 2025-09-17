@@ -446,20 +446,6 @@ class _QuickSuggest {
   }
 
   /**
-   * Returns a Suggest feature by the ML intent name (as defined by
-   * `feature.mlIntent` and `MLSuggest`). Not all features support ML.
-   *
-   * @param {string} intent
-   *   The name of an ML intent.
-   * @returns {SuggestProvider}
-   *   The feature object, an instance of a subclass of `SuggestProvider`, or
-   *   null if no feature corresponds to the intent.
-   */
-  getFeatureByMlIntent(intent) {
-    return this.#featuresByMlIntent.get(intent);
-  }
-
-  /**
    * Gets the Suggest feature that manages suggestions for urlbar result.
    *
    * @param {UrlbarResult} result
@@ -509,8 +495,6 @@ class _QuickSuggest {
           }
         }
         return this.#featuresByRustSuggestionType.get(provider);
-      case "ml":
-        return this.getFeatureByMlIntent(provider);
     }
     return null;
   }

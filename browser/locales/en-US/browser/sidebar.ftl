@@ -2,9 +2,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-menu-view-genai-chat =
-  .label = AI Chatbot
-
 menu-view-contextual-password-manager =
   .label = Passwords
 
@@ -132,8 +129,6 @@ sidebar-bookmarks-context-menu-delete-separator =
 
 ## Labels for sidebar menu items.
 
-sidebar-menu-genai-chat-label =
-  .label = AI chatbot
 sidebar-menu-history-label =
   .label = History
 sidebar-menu-synced-tabs-label =

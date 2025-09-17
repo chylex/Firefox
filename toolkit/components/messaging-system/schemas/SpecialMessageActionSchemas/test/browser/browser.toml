@@ -33,8 +33,6 @@ support-files = [
 
 ["browser_sma_docs.js"]
 
-["browser_sma_fxa_aiwindow_signin_flow.js"]
-
 ["browser_sma_handle_multiaction.js"]
 
 ["browser_sma_ipprotection_enroll.js"]
@@ -95,5 +93,3 @@ skip-if = [
 ]
 
 ["browser_sma_submit_onboarding_opt_out_ping.js"]
-
-["browser_sma_summarize_page.js"]

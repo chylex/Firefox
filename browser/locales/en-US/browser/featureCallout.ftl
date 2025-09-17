@@ -122,13 +122,6 @@ sidebar-callout-survey-none-of-above = None of the above
 sidebar-callout-survey-submit = Submit
 sidebar-callout-survey-thank-you = Thank you for your feedback!
 
-# Sidebar GenAI Survey Strings
-
-sidebar-genai-survey-satisfaction-question = How satisfied are you with having access to an AI chatbot in the sidebar?
-sidebar-genai-survey-productive-question =
-    To what extent do you agree or disagree with this statement:<br/>
-    “The AI chatbot in the sidebar helps me be more productive”?
-
 # Split View Onboarding Strings
 
 splitview-onboarding-callout-title-1 = Split view: a better way to multitask

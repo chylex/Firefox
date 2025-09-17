@@ -5,9 +5,6 @@
 browser.jar:
     content/browser/firefoxview/card-container.css
     content/browser/firefoxview/card-container.mjs
-    content/browser/firefoxview/chats.mjs
-    content/browser/firefoxview/chats-tab-list.css
-    content/browser/firefoxview/chats-tab-list.mjs
     content/browser/firefoxview/firefoxview.html
     content/browser/firefoxview/firefoxview.mjs
     content/browser/firefoxview/history.css

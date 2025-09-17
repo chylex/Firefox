@@ -23,8 +23,6 @@ let searchKeyboardShortcut = null;
 
 const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
 });
 
 const { topChromeWindow } = window.browsingContext;
@@ -106,12 +104,6 @@ function updateSyncVisibility() {
 
 window.addEventListener("DOMContentLoaded", async () => {
   recordEnteredTelemetry();
-
-  if (isAIWindow()) {
-    await import("chrome://browser/content/firefoxview/chats.mjs");
-    document.getElementById("firefoxview-chats-nav").hidden = false;
-    document.querySelector("view-chats").hidden = false;
-  }
 
   pageNav = document.querySelector("moz-page-nav");
   viewsDeck = document.querySelector("named-deck");
@@ -204,8 +196,4 @@ function onLocalesChanged() {
     updateSearchTextboxSize();
     updateSearchKeyboardShortcut();
   });
-}
-
-function isAIWindow() {
-  return lazy.AIWindow.isAIWindowActiveAndEnabled(topChromeWindow);
 }

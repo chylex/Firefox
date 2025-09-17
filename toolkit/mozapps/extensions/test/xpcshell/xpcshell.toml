@@ -46,14 +46,6 @@ run-if = [
  # Ensure EnvironmentAddonBuilder is managed by AMTelemetry on all builds.
 prefs = ["extensions.telemetry.EnvironmentAddonBuilder=true"]
 
-["test_ModelHubProvider.js"]
-run-if = [
-  "appname != 'thunderbird'", # Disabled in extensions.manifest
-]
-skip-if = [
-  "os == 'android'", # ModelHubProvider.sys.mjs is not included on Android
-]
-
 ["test_ProductAddonChecker.js"]
 
 ["test_ProductAddonChecker_signatures.js"]

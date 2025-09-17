@@ -16,66 +16,6 @@
       "chrome://browser/content/aboutlogins/components/login-message-popup.mjs": [
         "../../../browser/components/aboutlogins/content/components/login-message-popup.mjs"
       ],
-      "chrome://browser/content/aiwindow/components/ai-chat-content.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-content/ai-chat-content.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-chat-message.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-message/ai-chat-message.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-chat-search-button.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-search-button/ai-chat-search-button.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-chat-table.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-table/ai-chat-table.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-website-chip.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-website-confirmation.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-website-confirmation/ai-website-confirmation.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/ai-website-select.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-website-select/ai-website-select.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/applied-memories-button.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/applied-memories-button.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/assistant-message-footer.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/chat-assistant-error.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-error/chat-assistant-error.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/chat-assistant-loader.mjs": [
-        "../../../browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-loader/chat-assistant-loader.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/context-icon-button.mjs": [
-        "../../../browser/components/aiwindow/ui/components/context-icon-button/context-icon-button.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/input-cta.mjs": [
-        "../../../browser/components/aiwindow/ui/components/input-cta/input-cta.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/memories-icon-button.mjs": [
-        "../../../browser/components/aiwindow/ui/components/memories-icon-button/memories-icon-button.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/smartwindow-footer.mjs": [
-        "../../../browser/components/aiwindow/ui/components/smartwindow-footer/smartwindow-footer.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/smartwindow-panel-list.mjs": [
-        "../../../browser/components/aiwindow/ui/components/smartwindow-panel-list/smartwindow-panel-list.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/smartwindow-prompts.mjs": [
-        "../../../browser/components/aiwindow/ui/components/smartwindow-prompts/smartwindow-prompts.mjs"
-      ],
-      "chrome://browser/content/aiwindow/components/website-chip-container.mjs": [
-        "../../../browser/components/aiwindow/ui/components/website-chip-container/website-chip-container.mjs"
-      ],
-      "chrome://browser/content/aiwindow/modules/ChatMarkdownParser.mjs": [
-        "../../../browser/components/aiwindow/ui/modules/ChatMarkdownParser.mjs"
-      ],
-      "chrome://browser/content/aiwindow/modules/TokenStreamParser.mjs": [
-        "../../../browser/components/aiwindow/ui/modules/TokenStreamParser.mjs"
-      ],
       "chrome://browser/content/asrouter/components/menu-message.mjs": [
         "../../../browser/components/asrouter/content/components/menu-message/menu-message.mjs"
       ],
@@ -109,12 +49,6 @@
       "chrome://browser/content/firefoxview/card-container.mjs": [
         "../../../browser/components/firefoxview/card-container.mjs"
       ],
-      "chrome://browser/content/firefoxview/chats-tab-list.mjs": [
-        "../../../browser/components/firefoxview/chats-tab-list.mjs"
-      ],
-      "chrome://browser/content/firefoxview/chats.mjs": [
-        "../../../browser/components/firefoxview/chats.mjs"
-      ],
       "chrome://browser/content/firefoxview/fxview-empty-state.mjs": [
         "../../../browser/components/firefoxview/fxview-empty-state.mjs"
       ],
@@ -147,15 +81,6 @@
       ],
       "chrome://browser/content/firefoxview/syncedtabs.mjs": [
         "../../../browser/components/firefoxview/syncedtabs.mjs"
-      ],
-      "chrome://browser/content/genai/content/link-preview-card-onboarding.mjs": [
-        "../../../browser/components/genai/content/link-preview-card-onboarding.mjs"
-      ],
-      "chrome://browser/content/genai/content/link-preview-card.mjs": [
-        "../../../browser/components/genai/content/link-preview-card.mjs"
-      ],
-      "chrome://browser/content/genai/content/model-optin.mjs": [
-        "../../../browser/components/genai/content/model-optin.mjs"
       ],
       "chrome://browser/content/ipprotection/bandwidth-usage.mjs": [
         "../../../browser/components/ipprotection/content/bandwidth-usage.mjs"
@@ -198,9 +123,6 @@
       ],
       "chrome://browser/content/nsContextMenu.sys.mjs": [
         "../../../browser/base/content/nsContextMenu.sys.mjs"
-      ],
-      "chrome://browser/content/preferences/OnDeviceModelManager.mjs": [
-        "../../../browser/components/preferences/OnDeviceModelManager.mjs"
       ],
       "chrome://browser/content/preferences/config/SettingGroupManager.mjs": [
         "../../../browser/components/preferences/config/SettingGroupManager.mjs"
@@ -312,15 +234,6 @@
       ],
       "chrome://browser/content/urlbar/SearchModeSwitcher.mjs": [
         "../../../browser/components/urlbar/content/SearchModeSwitcher.mjs"
-      ],
-      "chrome://browser/content/urlbar/SmartbarInput.mjs": [
-        "../../../browser/components/urlbar/content/SmartbarInput.mjs"
-      ],
-      "chrome://browser/content/urlbar/SmartbarInputController.mjs": [
-        "../../../browser/components/urlbar/content/SmartbarInputController.mjs"
-      ],
-      "chrome://browser/content/urlbar/SmartbarInputUtils.mjs": [
-        "../../../browser/components/urlbar/content/SmartbarInputUtils.mjs"
       ],
       "chrome://browser/content/urlbar/UrlbarInput.mjs": [
         "../../../browser/components/urlbar/content/UrlbarInput.mjs"
@@ -481,90 +394,6 @@
       "chrome://global/content/megalist/components/virtual-passwords-list/virtual-passwords-list.mjs": [
         "../../../toolkit/components/satchel/megalist/content/components/virtual-passwords-list/virtual-passwords-list.mjs"
       ],
-      "chrome://global/content/ml/AIFeature.sys.mjs": [
-        "../../../toolkit/components/ml/AIFeature.sys.mjs"
-      ],
-      "chrome://global/content/ml/BlockWords.sys.mjs": [
-        "../../../toolkit/components/ml/content/BlockWords.sys.mjs"
-      ],
-      "chrome://global/content/ml/ClusterAlgos.sys.mjs": [
-        "../../../toolkit/components/ml/content/ClusterAlgos.sys.mjs"
-      ],
-      "chrome://global/content/ml/EmbeddingsGenerator.sys.mjs": [
-        "../../../toolkit/components/ml/content/nlp/EmbeddingsGenerator.sys.mjs"
-      ],
-      "chrome://global/content/ml/EngineProcess.sys.mjs": [
-        "../../../toolkit/components/ml/content/EngineProcess.sys.mjs"
-      ],
-      "chrome://global/content/ml/MLTelemetry.sys.mjs": [
-        "../../../toolkit/components/ml/MLTelemetry.sys.mjs"
-      ],
-      "chrome://global/content/ml/ModelHub.sys.mjs": [
-        "../../../toolkit/components/ml/content/ModelHub.sys.mjs"
-      ],
-      "chrome://global/content/ml/OPFS.sys.mjs": [
-        "../../../toolkit/components/ml/content/OPFS.sys.mjs"
-      ],
-      "chrome://global/content/ml/StopWords.sys.mjs": [
-        "../../../toolkit/components/ml/content/nlp/StopWords.sys.mjs"
-      ],
-      "chrome://global/content/ml/backends/LlamaCppPipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/LlamaCppPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/LlamaPipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/LlamaPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/ONNXPipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/ONNXPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/OpenAIPipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/OpenAIPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/Pipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/Pipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/StaticEmbeddingsPipeline.mjs": [
-        "../../../toolkit/components/ml/content/backends/StaticEmbeddingsPipeline.mjs"
-      ],
-      "chrome://global/content/ml/openai-dev.mjs": [
-        "../../../toolkit/components/ml/vendor/openai/dist/openai-dev.mjs"
-      ],
-      "chrome://global/content/ml/openai.mjs": [
-        "../../../toolkit/components/ml/vendor/openai/dist/openai.mjs"
-      ],
-      "chrome://global/content/ml/ort.webgpu-dev.mjs": [
-        "../../../toolkit/components/ml/vendor/ort.webgpu-dev.mjs"
-      ],
-      "chrome://global/content/ml/security/ConditionEvaluator.sys.mjs": [
-        "../../../toolkit/components/ml/security/ConditionEvaluator.sys.mjs"
-      ],
-      "chrome://global/content/ml/security/DecisionTypes.sys.mjs": [
-        "../../../toolkit/components/ml/security/DecisionTypes.sys.mjs"
-      ],
-      "chrome://global/content/ml/security/PolicyEvaluator.sys.mjs": [
-        "../../../toolkit/components/ml/security/PolicyEvaluator.sys.mjs"
-      ],
-      "chrome://global/content/ml/security/SecurityLogger.sys.mjs": [
-        "../../../toolkit/components/ml/security/SecurityLogger.sys.mjs"
-      ],
-      "chrome://global/content/ml/security/SecurityOrchestrator.sys.mjs": [
-        "../../../toolkit/components/ml/security/SecurityOrchestrator.sys.mjs"
-      ],
-      "chrome://global/content/ml/security/SecurityUtils.sys.mjs": [
-        "../../../toolkit/components/ml/security/SecurityUtils.sys.mjs"
-      ],
-      "chrome://global/content/ml/transformers-dev.js": [
-        "../../../toolkit/components/ml/vendor/transformers-dev.js"
-      ],
-      "chrome://global/content/ml/transformers.js": [
-        "../../../toolkit/components/ml/vendor/transformers.js"
-      ],
-      "chrome://global/content/ml/wllama-module-dev.mjs": [
-        "../../../toolkit/components/ml/vendor/wllama-module-dev.mjs"
-      ],
-      "chrome://global/content/ml/wllama-module.mjs": [
-        "../../../toolkit/components/ml/vendor/wllama-module.mjs"
-      ],
       "chrome://global/content/net-error-card.mjs": [
         "../../../toolkit/content/net-error-card.mjs"
       ],
@@ -630,12 +459,6 @@
       ],
       "chrome://mochitests/content/browser/accessible/tests/browser/Layout.sys.mjs": [
         "../../../accessible/tests/browser/Layout.sys.mjs"
-      ],
-      "chrome://mochitests/content/browser/browser/components/aiwindow/models/tests/browser_eval/prompts/basic_quality.sys.mjs": [
-        "../../../browser/components/aiwindow/models/tests/browser_eval/prompts/basic_quality.sys.mjs"
-      ],
-      "chrome://mochitests/content/browser/browser/components/aiwindow/models/tests/browser_eval/tests/basic_quality.sys.mjs": [
-        "../../../browser/components/aiwindow/models/tests/browser_eval/tests/basic_quality.sys.mjs"
       ],
       "chrome://mochitests/content/browser/devtools/client/debugger/test/mochitest/examples/worker-esm-dep.mjs": [
         "../../../devtools/client/debugger/test/mochitest/examples/worker-esm-dep.mjs"
@@ -1135,9 +958,6 @@
       "resource:///actors/LinkHandlerParent.sys.mjs": [
         "../../../browser/actors/LinkHandlerParent.sys.mjs"
       ],
-      "resource:///actors/LinkPreviewChild.sys.mjs": [
-        "../../../browser/components/genai/LinkPreviewChild.sys.mjs"
-      ],
       "resource:///actors/PluginParent.sys.mjs": [
         "../../../browser/actors/PluginParent.sys.mjs"
       ],
@@ -1258,9 +1078,6 @@
       "resource:///modules/FirefoxProfileMigrator.sys.mjs": [
         "../../../browser/components/migration/FirefoxProfileMigrator.sys.mjs"
       ],
-      "resource:///modules/GenAI.sys.mjs": [
-        "../../../browser/components/genai/GenAI.sys.mjs"
-      ],
       "resource:///modules/HistoryController.sys.mjs": [
         "../../../browser/components/firefoxview/HistoryController.sys.mjs"
       ],
@@ -1377,9 +1194,6 @@
       ],
       "resource:///modules/aboutwelcome/AboutWelcomeTelemetry.sys.mjs": [
         "../../../browser/components/aboutwelcome/modules/AboutWelcomeTelemetry.sys.mjs"
-      ],
-      "resource:///modules/aiwindow/ui/modules/ChatStore.sys.mjs": [
-        "../../../browser/components/aiwindow/ui/modules/ChatStore.sys.mjs"
       ],
       "resource:///modules/asrouter/ASRouter.sys.mjs": [
         "../../../browser/components/asrouter/modules/ASRouter.sys.mjs"
@@ -5437,9 +5251,6 @@
       "resource://gre/actors/FormHandlerChild.sys.mjs": [
         "../../../toolkit/components/satchel/FormHandlerChild.sys.mjs"
       ],
-      "resource://gre/actors/MLEngineParent.sys.mjs": [
-        "../../../toolkit/components/ml/actors/MLEngineParent.sys.mjs"
-      ],
       "resource://gre/actors/NetErrorParent.sys.mjs": [
         "../../../toolkit/actors/NetErrorParent.sys.mjs"
       ],
@@ -6169,12 +5980,6 @@
       "resource://gre/modules/PlacesQuery.sys.mjs": [
         "../../../toolkit/components/places/PlacesQuery.sys.mjs"
       ],
-      "resource://gre/modules/PlacesSemanticHistoryDatabase.sys.mjs": [
-        "../../../toolkit/components/places/PlacesSemanticHistoryDatabase.sys.mjs"
-      ],
-      "resource://gre/modules/PlacesSemanticHistoryManager.sys.mjs": [
-        "../../../toolkit/components/places/PlacesSemanticHistoryManager.sys.mjs"
-      ],
       "resource://gre/modules/PlacesSyncUtils.sys.mjs": [
         "../../../toolkit/components/places/PlacesSyncUtils.sys.mjs"
       ],
@@ -6444,9 +6249,6 @@
       ],
       "resource://gre/modules/addons/GMPProvider.sys.mjs": [
         "../../../toolkit/mozapps/extensions/internal/GMPProvider.sys.mjs"
-      ],
-      "resource://gre/modules/addons/ModelHubProvider.sys.mjs": [
-        "../../../toolkit/mozapps/extensions/internal/ModelHubProvider.sys.mjs"
       ],
       "resource://gre/modules/addons/ProductAddonChecker.sys.mjs": [
         "../../../toolkit/mozapps/extensions/internal/ProductAddonChecker.sys.mjs"
@@ -7006,9 +6808,6 @@
       "resource://pdf.js/PdfJs.sys.mjs": [
         "../../../toolkit/components/pdfjs/content/PdfJs.sys.mjs"
       ],
-      "resource://pdf.js/PdfJsAIFeature.sys.mjs": [
-        "../../../toolkit/components/pdfjs/content/PdfJsAIFeature.sys.mjs"
-      ],
       "resource://pdf.js/PdfJsNetwork.sys.mjs": [
         "../../../toolkit/components/pdfjs/content/PdfJsNetwork.sys.mjs"
       ],
@@ -7348,9 +7147,6 @@
       "resource://test/webextension-helpers.js": [
         "../../../devtools/server/tests/xpcshell/webextension-helpers.js"
       ],
-      "resource://testing-common/AIWindowTestUtils.sys.mjs": [
-        "../../../browser/components/aiwindow/ui/test/AIWindowTestUtils.sys.mjs"
-      ],
       "resource://testing-common/AddonTestUtils.sys.mjs": [
         "../../../toolkit/mozapps/extensions/internal/AddonTestUtils.sys.mjs"
       ],
@@ -7431,9 +7227,6 @@
       ],
       "resource://testing-common/LoginTestUtils.sys.mjs": [
         "../../../toolkit/components/passwordmgr/test/LoginTestUtils.sys.mjs"
-      ],
-      "resource://testing-common/MLTestUtils.sys.mjs": [
-        "../../../toolkit/components/ml/tests/MLTestUtils.sys.mjs"
       ],
       "resource://testing-common/MerinoTestUtils.sys.mjs": [
         "../../../browser/components/urlbar/tests/quicksuggest/MerinoTestUtils.sys.mjs"
@@ -7683,12 +7476,6 @@
       ],
       "resource://webcompat/AboutCompat.sys.mjs": [
         "../../../browser/extensions/webcompat/about-compat/AboutCompat.sys.mjs"
-      ],
-      "chrome://global/content/ml/NLPUtils.sys.mjs": [
-        "../../../toolkit/components/ml/content/nlp/Utils.sys.mjs"
-      ],
-      "chrome://global/content/ml/Utils.sys.mjs": [
-        "../../../toolkit/components/ml/content/Utils.sys.mjs"
       ],
       "chrome://mochikit/content/tests/SimpleTest/SimpleTest.js": [
         "../../../testing/mochitest/tests/SimpleTest/SimpleTest.js"

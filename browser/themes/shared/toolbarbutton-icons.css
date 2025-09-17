@@ -412,14 +412,6 @@
   }
 }
 
-#smartwindow-ask-button-inner {
-  list-style-image: url("chrome://browser/content/aiwindow/assets/ask-icon.svg");
-
-  &[aria-expanded="true"] {
-    list-style-image: url("chrome://global/skin/icons/close.svg");
-  }
-}
-
 #document-pip-return-to-opener-button {
   list-style-image: url("chrome://global/skin/media/picture-in-picture-closed.svg");
 }

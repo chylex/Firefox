@@ -19,8 +19,6 @@ XPCOMUtils.defineLazyServiceGetters(lazy, {
 });
 
 ChromeUtils.defineESModuleGetters(lazy, {
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   HomePage: "resource:///modules/HomePage.sys.mjs",
   PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.sys.mjs",
 });
@@ -303,8 +301,6 @@ export const BrowserWindowTracker = {
    *   An existing browser window to open the new one from.
    * @param {boolean} [options.private]
    *   True to make the window a private browsing window.
-   * @param {boolean} [options.aiWindow]
-   *   True to make the window an AI browsing window.
    * @param {string} [options.features]
    *   Additional window features to give the new window.
    * @param {boolean} [options.all]
@@ -332,7 +328,7 @@ export const BrowserWindowTracker = {
       fission = undefined,
     } = options;
 
-    args = lazy.AIWindow.handleAIWindowOptions(options);
+    args = options.args;
 
     let windowFeatures = "chrome,dialog=no";
     if (all) {

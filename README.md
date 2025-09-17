@@ -16,6 +16,7 @@ To include the `beta` branch from the upstream repository, use: `git remote add 
 * Disabled Encrypted Media Extensions
 * Disabled Refresh Browser prompt
 * Disabled default browser check
+* Removed AI garbage
 * Removed Privacy-Preserving Attribution
 * Removed the "improvements" to download panel, including the profile migration which changes your existing settings
 * Reverted "Open Image in New Tab" back to "View Image"

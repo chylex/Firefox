@@ -245,14 +245,6 @@ const CONFIG_PANES = Object.freeze({
     iconSrc: "chrome://global/skin/icons/eye.svg",
     visible: () => srdSectionPrefs.all,
   },
-  ai: {
-    l10nId: "preferences-ai-controls-header2",
-    iconSrc: "chrome://global/skin/icons/highlights.svg",
-    groupIds: ["aiControlsDescription", "aiFeatures", "aiStatesDescription"],
-    module: "chrome://browser/content/preferences/config/aiFeatures.mjs",
-    visible: () =>
-      Services.prefs.getBoolPref("browser.preferences.aiControls", false),
-  },
   downloads: {
     l10nId: "pane-downloads2",
     iconSrc: "chrome://browser/skin/downloads/downloads.svg",
@@ -335,13 +327,6 @@ const CONFIG_PANES = Object.freeze({
     module:
       "chrome://browser/content/preferences/config/passwords-autofill.mjs",
   },
-  manageMemories: {
-    parent: "personalizeSmartWindow",
-    l10nId: "ai-window-manage-memories-header",
-    groupIds: ["manageMemories"],
-    module: "chrome://browser/content/preferences/config/aiFeatures.mjs",
-    supportPage: "smart-window-memories",
-  },
   managePayments: {
     parent: "passwordsAutofill",
     l10nId: "autofill-payment-methods-manage-payments-title",
@@ -361,14 +346,6 @@ const CONFIG_PANES = Object.freeze({
     groupIds: ["permissions", "dataCollection"],
     module: "chrome://browser/content/preferences/config/permissions-data.mjs",
     visible: () => srdSectionEnabled("permissionsData"),
-  },
-  personalizeSmartWindow: {
-    parent: "ai",
-    l10nId: "ai-window-personalize-header",
-    iconSrc: "chrome://browser/skin/smart-window-mono.svg",
-    badge: "beta",
-    groupIds: ["assistantDefaultGroup", "assistantModelGroup", "memoriesGroup"],
-    module: "chrome://browser/content/preferences/config/aiFeatures.mjs",
   },
   passwordsAutofill: {
     l10nId: "preferences-passwords-autofill-header",

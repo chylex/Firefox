@@ -55,8 +55,6 @@ ChromeUtils.defineESModuleGetters(lazy, {
   Spotlight: "resource:///modules/asrouter/Spotlight.sys.mjs",
   ToastNotification: "resource:///modules/asrouter/ToastNotification.sys.mjs",
   ToolbarBadgeHub: "resource:///modules/asrouter/ToolbarBadgeHub.sys.mjs",
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
 });
 
 XPCOMUtils.defineLazyPreferenceGetter(
@@ -2514,9 +2512,7 @@ export class _ASRouter {
         trigger.context.onThirdPartyPage = isThirdPartyPage(
           browser.documentGlobal.gBrowser?.currentURI
         );
-        trigger.context.isAIWindow = !!lazy.AIWindow?.isAIWindowActive?.(
-          browser.documentGlobal
-        );
+        trigger.context.isAIWindow = false;
         trigger.context.browserIsSelected =
           trigger.context.browserIsSelected ||
           browser === browser.documentGlobal.gBrowser?.selectedBrowser;

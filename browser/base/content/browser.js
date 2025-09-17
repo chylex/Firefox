@@ -12,8 +12,6 @@ var { AppConstants } = ChromeUtils.importESModule(
 // lazy module getters
 
 ChromeUtils.defineESModuleGetters(this, {
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   AMTelemetry: "resource://gre/modules/AddonManager.sys.mjs",
   AboutNewTab: "resource:///modules/AboutNewTab.sys.mjs",
   AboutReaderParent: "resource:///actors/AboutReaderParent.sys.mjs",
@@ -1864,16 +1862,6 @@ let gFileMenu = {
       );
     }
     PrintUtils.updatePrintSetupMenuHiddenState();
-
-    const aiWindowMenu = event.target.querySelector("#menu_newAIWindow");
-    const classicWindowMenu = event.target.querySelector(
-      "#menu_newClassicWindow"
-    );
-
-    aiWindowMenu.hidden =
-      !AIWindow.isAIWindowEnabled() || AIWindow.isAIWindowActive(window);
-    classicWindowMenu.hidden =
-      !AIWindow.isAIWindowEnabled() || !AIWindow.isAIWindowActive(window);
   },
 };
 
@@ -2245,7 +2233,6 @@ var XULBrowserWindow = {
     // If we've actually changed document, update the toolbar visibility.
     if (!isSameDocument) {
       updateBookmarkToolbarVisibility();
-      AIWindow.updateImmersiveView(gBrowser.currentURI, window);
     }
 
     let closeOpenPanels = selector => {

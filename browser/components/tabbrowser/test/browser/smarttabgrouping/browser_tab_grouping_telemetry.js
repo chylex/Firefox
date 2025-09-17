@@ -323,10 +323,6 @@ add_task(async function test_optin_telemetry() {
     "Should show proper step and description"
   );
 
-  let mo = document.querySelector("model-optin");
-  Assert.ok(mo, "Found the ModelOptin element in the DOM.");
-  await waitForUpdateComplete(mo);
-
   // first cancel the flow
   Services.fog.testResetFOG();
   const denyBtn = mo.shadowRoot.querySelector("#optin-deny-button");

@@ -1781,9 +1781,6 @@ pref("extensions.install_origins.enabled", false);
 pref("extensions.browser_style_mv3.supported", false);
 pref("extensions.browser_style_mv3.same_as_mv2", false);
 
-// Experimental Inference API
-pref("extensions.ml.enabled", true);
-
 // Local model management page enabled
 pref("extensions.htmlaboutaddons.local_model_management", true);
 
@@ -3631,34 +3628,6 @@ pref("browser.translations.simulateUnsupportedEngine", false);
 // between 0ms and the timeoutMS provided.
 pref("browser.translations.chaos.errors", false);
 pref("browser.translations.chaos.timeoutMS", 0);
-
-// AI controls
-pref("browser.ai.control.default", "available");
-pref("browser.ai.control.translations", "default");
-pref("browser.ai.control.pdfjsAltText", "default");
-pref("browser.ai.control.smartTabGroups", "default");
-pref("browser.ai.control.linkPreviewKeyPoints", "default");
-pref("browser.ai.control.sidebarChatbot", "default");
-pref("browser.ai.control.smartWindow", "default");
-
-// Enable the experimental machine learning inference engine.
-pref("browser.ml.enable", true);
-// Set to "All" to see all logs, which are useful for debugging.
-pref("browser.ml.logLevel", "Error");
-// Model hub root URL used to download models.
-pref("browser.ml.modelHubRootUrl", "https://model-hub.mozilla.org/");
-// Model URL template
-pref("browser.ml.modelHubUrlTemplate", "{model}/{revision}");
-// Maximum disk size for ML model cache (in GiB)
-pref("browser.ml.modelCacheMaxSize", 4);
-// Model cache timeout in ms
-pref("browser.ml.modelCacheTimeout", 120000);
-// Minimal Physical RAM required in GiB
-pref("browser.ml.minimumPhysicalMemory", 3);
-// Check for memory before running
-pref("browser.ml.checkForMemory", true);
-// Allowed overrides for various ml features
-pref("browser.ml.overridePipelineOptions", "{}");
 
 // When a user cancels this number of authentication dialogs coming from
 // a single web page in a row, all following authentication dialogs will

@@ -428,14 +428,6 @@ onboarding-horizontal-tabs-description =
 
 # Existing users - additional setup card
 
-# Additional setup card for setting up aichatbot in the sidebar
-onboarding-genai-sidebar-title = Try an AI chatbot in the sidebar
-
-# Setup card for setting up AI chatbot in the sidebar; "Providers" refers to AI chatbot providers (e.g. OpenAI, etc). "Switch anytime" refers to allowing the user to switch to a different chatbot.
-onboarding-genai-sidebar-subtitle = Summarize web content, brainstorm ideas, draft messages — all as you browse. Choose from multiple providers. Switch anytime. <a data-l10n-name="learn-more">Learn more</a>
-onboarding-genai-sidebar-primary-button = Choose a chatbot
-onboarding-genai-sidebar-secondary-button = Start browsing
-
 ## New user onboarding checklist
 
 onboarding-checklist-title = Finish setting up { -brand-short-name }

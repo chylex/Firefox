@@ -193,7 +193,6 @@ document.addEventListener(
             new HistoryMenu(event);
           }
 
-          AIWindow.appMenu(event, window);
           break;
         case "historyUndoPopup":
           document

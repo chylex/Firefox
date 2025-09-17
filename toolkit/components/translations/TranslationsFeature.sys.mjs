@@ -2,7 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { AIFeature } from "chrome://global/content/ml/AIFeature.sys.mjs";
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 /**
@@ -21,7 +20,7 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   TranslationsUtils:
     "chrome://global/content/translations/TranslationsUtils.mjs",
-  EngineProcess: "chrome://global/content/ml/EngineProcess.sys.mjs",
+  // EngineProcess: "chrome://global/content/ml/EngineProcess.sys.mjs",
   TranslationsTelemetry:
     "chrome://global/content/translations/TranslationsTelemetry.sys.mjs",
   TranslationsParent: "resource://gre/actors/TranslationsParent.sys.mjs",
@@ -47,7 +46,7 @@ XPCOMUtils.defineLazyPreferenceGetter(
 /**
  * AIFeature implementation for translations.
  */
-export class TranslationsFeature extends AIFeature {
+export class TranslationsFeature {
   /**
    * Feature identifier for translations.
    *

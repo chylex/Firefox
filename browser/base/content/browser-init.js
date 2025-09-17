@@ -204,12 +204,6 @@ var gBrowserInit = {
         );
         window.document.documentElement.id = "taskbartab-" + taskbarTabId;
       }
-      if (extraOptions.hasKey("ai-window")) {
-        document.documentElement.setAttribute("ai-window", true);
-      }
-      if (extraOptions.hasKey("aiwindow-immersive-view")) {
-        document.documentElement.setAttribute("aiwindow-immersive-view", true);
-      }
     }
 
     // Run menubar initialization first, to avoid CustomTitlebar code picking
@@ -1228,16 +1222,6 @@ var gBrowserInit = {
       ToolbarKeyboardNavigator.uninit();
     }
     CustomKeys.uninitWindow(window);
-
-    // Bug 1952900 to allow switching to unload category without leaking
-    ChromeUtils.importESModule(
-      "moz-src:///browser/components/genai/LinkPreview.sys.mjs"
-    ).LinkPreview.teardown(window);
-
-    BrowserUtils.callModulesFromCategory(
-      { categoryName: "browser-window-unload", jsGlobal: globalThis },
-      window
-    );
 
     // Now either cancel delayedStartup, or clean up the services initialized from
     // it.

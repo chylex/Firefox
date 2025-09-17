@@ -718,7 +718,6 @@ const PREF_URLBAR_DEFAULTS_MAP = new Map(PREF_URLBAR_DEFAULTS);
 
 const PREF_OTHER_DEFAULTS = /** @type {PreferenceDefinition[]} */ ([
   ["browser.fixup.dns_first_for_single_words", false],
-  ["browser.ml.enable", false],
   ["browser.search.openintab", false],
   ["browser.search.suggest.enabled", true],
   ["browser.search.suggest.enabled.private", false],

@@ -7,7 +7,6 @@ import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 /**
  * @import {BrowserSearchTelemetry} from "moz-src:///browser/components/search/BrowserSearchTelemetry.sys.mjs"
  * @import {ProvidersManager} from "moz-src:///browser/components/urlbar/UrlbarProvidersManager.sys.mjs"
- * @import {SapLocation, SmartbarInput} from "moz-src:///browser/components/urlbar/content/SmartbarInput.mjs"
  * @import {UrlbarView} from "moz-src:///browser/components/urlbar/UrlbarView.sys.mjs"
  * @import {WindowMode} from "moz-src:///browser/components/urlbar/content/UrlbarInput.mjs"
  */
@@ -21,8 +20,6 @@ ChromeUtils.defineESModuleGetters(lazy, {
     "moz-src:///browser/components/urlbar/UrlbarProvidersManager.sys.mjs",
   SearchService: "moz-src:///toolkit/components/search/SearchService.sys.mjs",
   UrlbarPrefs: "moz-src:///browser/components/urlbar/UrlbarPrefs.sys.mjs",
-  UrlbarProviderSemanticHistorySearch:
-    "moz-src:///browser/components/urlbar/UrlbarProviderSemanticHistorySearch.sys.mjs",
   UrlbarUtils: "moz-src:///browser/components/urlbar/UrlbarUtils.sys.mjs",
   UrlUtils: "resource://gre/modules/UrlUtils.sys.mjs",
 });
@@ -1421,19 +1418,7 @@ class TelemetryEvent {
    *   Telemetry for the smartbar.
    */
   #getOptionalSmartbarTelemetry(searchSource) {
-    const isSmartbar = this.#searchSourceToSap(searchSource) === "smartbar";
-    if (!isSmartbar) {
-      return null;
-    }
-    // If SAP is `smartbar` we can safely cast to type `SmartbarInput`.
-    const input = /** @type {SmartbarInput} */ (
-      /** @type {unknown} */ (this._controller.input)
-    );
-    return {
-      chatId: input.conversationTelemetryInfo?.chat_id ?? "",
-      intent: input.smartbarAction ?? "",
-      model: input.modelName ?? "",
-    };
+    return null;
   }
 
   /**
@@ -1445,25 +1430,7 @@ class TelemetryEvent {
    *   if no sources were found.
    */
   #getAvailableSemanticSources() {
-    let sources = [];
-    try {
-      const semanticManager =
-        lazy.UrlbarProviderSemanticHistorySearch.semanticManager;
-      const isSmartbar = this._controller.input.sapName === "smartbar";
-      if (
-        isSmartbar
-          ? semanticManager.isEnabledForSmartWindow
-          : semanticManager.canUseSemanticSearch
-      ) {
-        sources.push("history");
-      }
-    } catch (e) {
-      lazy.logger.error("Error getting the semantic manager:", e);
-    }
-    if (!sources.length) {
-      sources.push("none");
-    }
-    return sources;
+    return [];
   }
 
   /**

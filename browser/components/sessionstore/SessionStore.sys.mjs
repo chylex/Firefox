@@ -174,8 +174,6 @@ XPCOMUtils.defineLazyServiceGetters(lazy, {
 });
 
 ChromeUtils.defineESModuleGetters(lazy, {
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   AsyncShutdown: "resource://gre/modules/AsyncShutdown.sys.mjs",
   BrowserWindowTracker: "resource:///modules/BrowserWindowTracker.sys.mjs",
   DevToolsShim: "chrome://devtools-startup/content/DevToolsShim.sys.mjs",
@@ -2072,10 +2070,6 @@ var SessionStoreInternal = {
 
     if (aWindow.document.documentElement.hasAttribute("taskbartab")) {
       this._windows[aWindow.__SSi].isTaskbarTab = true;
-    }
-
-    if (lazy.AIWindow.isAIWindowActiveAndEnabled(aWindow)) {
-      this._windows[aWindow.__SSi].isAIWindow = true;
     }
 
     let tabbrowser = aWindow.gBrowser;
@@ -5275,14 +5269,9 @@ var SessionStoreInternal = {
       // the state we're trying to restore and then fallback to the last selected
       // window.
       let windowToUse = windows[lastSessionWindowID];
-      let lastWindowIsAIWindow =
-        lastWindow && lazy.AIWindow.isAIWindowActive(lastWindow);
-      let thisWindowIsAIWindow =
-        !!winState.isAIWindow && lazy.AIWindow.isAIWindowEnabled();
       if (
         !windowToUse &&
-        canUseLastWindow &&
-        lastWindowIsAIWindow == thisWindowIsAIWindow
+        canUseLastWindow
       ) {
         windowToUse = lastWindow;
         canUseLastWindow = false;
@@ -5577,8 +5566,6 @@ var SessionStoreInternal = {
     if (workspaceID) {
       winData.workspaceID = workspaceID;
     }
-
-    winData.isAIWindow = lazy.AIWindow.isAIWindowActive(aWindow);
   },
 
   /**
@@ -6760,21 +6747,10 @@ var SessionStoreInternal = {
   restoreWindowFeatures: function ssi_restoreWindowFeatures(
     aWindow,
     aWinData,
-    aOptions = {}
   ) {
     var hidden = aWinData.hidden ? aWinData.hidden.split(",") : [];
     var isTaskbarTab =
       aWindow.document.documentElement.hasAttribute("taskbartab");
-
-    const shouldBeAIWindow =
-      !!aWinData.isAIWindow && lazy.AIWindow.isAIWindowEnabled();
-    const trigger = aOptions.trigger ?? "open_browser";
-
-    if (lazy.AIWindow.isAIWindowActive(aWindow) !== shouldBeAIWindow) {
-      lazy.AIWindow.toggleAIWindow(aWindow, shouldBeAIWindow, trigger);
-    } else if (shouldBeAIWindow) {
-      lazy.AIWindow.recordOpenWindowTelemetry(trigger);
-    }
 
     if (!isTaskbarTab) {
       WINDOW_HIDEABLE_FEATURES.forEach(function (aItem) {
@@ -7239,20 +7215,6 @@ var SessionStoreInternal = {
     // A window CANNOT be both a Private Window and an AI Window
     if (winState.isPrivate) {
       features.push("private");
-    } else if (winState.isAIWindow) {
-      let tab = winState.tabs[winState.selected - 1];
-      let restoreSessionURL = "";
-      if (tab.entries.length) {
-        // tab.index is 1-based in the session store format (0/falsy means unset).
-        let activeIndex = (tab.index || tab.entries.length) - 1;
-        restoreSessionURL = tab.entries[activeIndex].url;
-      }
-      argString = lazy.AIWindow.handleAIWindowOptions({
-        openerWindow: null,
-        args: argString,
-        aiWindow: winState.isAIWindow,
-        restoreSessionURL,
-      });
     }
 
     if (!argString) {

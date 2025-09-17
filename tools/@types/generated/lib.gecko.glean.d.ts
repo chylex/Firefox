@@ -490,59 +490,6 @@ interface GleanImpl {
     tabSelectedToolbarbutton: GleanEventNoExtras;
   }
 
-  genaiChatbot: {
-    badges: GleanString;
-    contextmenuChoose: GleanEventWithExtras<{ provider?: string }>;
-    contextmenuPromptClick: GleanEventWithExtras<{ prompt?: string, provider?: string, selection?: string }>;
-    contextmenuRemove: GleanEventWithExtras<{ provider?: string }>;
-    enabled: GleanBoolean;
-    experimentCheckboxClick: GleanEventWithExtras<{ enabled?: string }>;
-    keyboardShortcut: GleanEventWithExtras<{ enabled?: string, sidebar?: string }>;
-    lengthDisclaimer: GleanEventWithExtras<{ length?: string, provider?: string, type?: string }>;
-    lengthDisclaimerDismissed: GleanEventWithExtras<{ provider?: string, type?: string }>;
-    menu: GleanBoolean;
-    onboardingClose: GleanEventWithExtras<{ provider?: string, step?: string }>;
-    onboardingFinish: GleanEventWithExtras<{ provider?: string, step?: string }>;
-    onboardingLearnMore: GleanEventWithExtras<{ provider?: string, step?: string }>;
-    onboardingProviderChoiceDisplayed: GleanEventWithExtras<{ provider?: string, step?: string }>;
-    onboardingProviderSelection: GleanEventWithExtras<{ provider?: string, step?: string }>;
-    onboardingProviderTerms: GleanEventWithExtras<{ provider?: string, step?: string, text?: string }>;
-    page: GleanBoolean;
-    promptClick: GleanEventWithExtras<{ content_type?: string, prompt?: string, provider?: string, reader_mode?: string, selection?: string, source?: string }>;
-    provider: GleanString;
-    providerChange: GleanEventWithExtras<{ current?: string, previous?: string, surface?: string }>;
-    shortcuts: GleanBoolean;
-    shortcutsCheckboxClick: GleanEventWithExtras<{ enabled?: string }>;
-    shortcutsCustom: GleanBoolean;
-    shortcutsDisplayed: GleanEventWithExtras<{ delay?: string, inputType?: string, selection?: string }>;
-    shortcutsExpanded: GleanEventWithExtras<{ provider?: string, selection?: string, warning?: string }>;
-    shortcutsHideClick: GleanEventWithExtras<{ selection?: string }>;
-    shortcutsPromptClick: GleanEventWithExtras<{ prompt?: string, provider?: string, selection?: string }>;
-    sidebar: GleanBoolean;
-    sidebarCloseClick: GleanEventWithExtras<{ provider?: string }>;
-    sidebarMoreMenuClick: GleanEventWithExtras<{ action?: string, provider?: string }>;
-    sidebarMoreMenuDisplay: GleanEventWithExtras<{ provider?: string }>;
-    sidebarProviderMenuClick: GleanEventWithExtras<{ action?: string, provider?: string }>;
-    sidebarToggle: GleanEventWithExtras<{ opened?: string, provider?: string, reason?: string, version?: string }>;
-    summarizePage: GleanEventWithExtras<{ provider?: string, reader_mode?: string, selection?: string, source?: string }>;
-  }
-
-  genaiLinkpreview: {
-    aiOptin: GleanBoolean;
-    cardAiConsent: GleanEventWithExtras<{ option?: string }>;
-    cardClose: GleanEventWithExtras<{ duration?: string, tab?: string }>;
-    cardLink: GleanEventWithExtras<{ key_points?: string, source?: string, tab?: string }>;
-    enabled: GleanBoolean;
-    fetch: GleanEventWithExtras<{ description?: string, image?: string, length?: string, outcome?: string, sitename?: string, skipped?: string, tab?: string, time?: string, title?: string }>;
-    generate: GleanEventWithExtras<{ delay?: string, download?: string, latency?: string, outcome?: string, sentences?: string, time?: string }>;
-    keyPoints: GleanBoolean;
-    keyPointsToggle: GleanEventWithExtras<{ expand?: string }>;
-    onboardingCard: GleanEventWithExtras<{ action?: string, type?: string }>;
-    prefChanged: GleanEventWithExtras<{ enabled?: string, pref?: string }>;
-    shortcut: GleanString;
-    start: GleanEventWithExtras<{ cached?: string, source?: string, tab?: string }>;
-  }
-
   ipprotection: {
     alertButtonClicked: GleanEventWithExtras<{ buttonType?: string, reason?: string }>;
     bandwidthUsedThreshold: GleanEventWithExtras<{ percentage?: string }>;

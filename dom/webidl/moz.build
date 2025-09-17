@@ -854,7 +854,6 @@ WEBIDL_FILES = [
     "OfflineAudioContext.webidl",
     "OffscreenCanvas.webidl",
     "OffscreenCanvasRenderingContext2D.webidl",
-    "ONNX.webidl",
     "OscillatorNode.webidl",
     "PaintRequest.webidl",
     "PaintRequestList.webidl",
@@ -1141,12 +1140,6 @@ WEBIDL_FILES = [
     "XPathResult.webidl",
     "XSLTProcessor.webidl",
 ]
-
-# Native llama.cpp for ml engine.
-if CONFIG["MOZ_WIDGET_TOOLKIT"] != "android":
-    WEBIDL_FILES += [
-        "LlamaRunner.webidl",
-    ]
 
 if CONFIG["MOZ_WEBRTC"]:
     WEBIDL_FILES += [

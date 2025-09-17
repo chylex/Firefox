@@ -48,18 +48,6 @@ let JSPROCESSACTORS = {
     },
   },
 
-  // A single process (shared with translations) that manages machine learning engines.
-  MLEngine: {
-    remoteTypes: ["inference"],
-    parent: {
-      esModuleURI: "resource://gre/actors/MLEngineParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource://gre/actors/MLEngineChild.sys.mjs",
-    },
-    enablePreference: "browser.ml.enable",
-  },
-
   ProcessConduits: {
     parent: {
       esModuleURI: "resource://gre/modules/ConduitsParent.sys.mjs",

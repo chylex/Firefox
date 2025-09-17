@@ -2268,22 +2268,6 @@ modules:
       - *asuth
       - *farre
     meta:
-  - machine_name: core_machine_learning
-    name: 'Core: Machine Learning'
-    description: AI services and local inference
-    includes:
-      - browser/components/genai/
-      - toolkit/components/aboutinference/
-      - toolkit/components/ml/
-    meta:
-      components:
-        - Core::Machine Learning
-      review_group: firefox-ai-ml-reviewers
-    owners:
-      - *Mardak
-      - *tarek
-    peers:
-      - *gregtatum
 
   - name: 'Core: MathML'
     description: MathML is a low-level specification for describing mathematics which

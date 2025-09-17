@@ -17,13 +17,6 @@
     "resource:///modules/contentsharing/ContentSharingUtils.sys.mjs"
   );
 
-  ChromeUtils.importESModule(
-    "chrome://browser/content/genai/content/model-optin.mjs",
-    {
-      global: "current",
-    }
-  );
-
   class MozTabbrowserTabGroupMenu extends MozXULElement {
     static COLORS = [
       "blue",
@@ -521,13 +514,7 @@
     }
 
     get smartTabGroupsEnabled() {
-      return (
-        Services.locale.appLocaleAsBCP47.startsWith("en") &&
-        this.smartTabGroupsUserEnabled &&
-        this.smartTabGroupsFeatureConfigEnabled &&
-        !PrivateBrowsingUtils.isWindowPrivate(this.documentGlobal) &&
-        this.mlEnabled
-      );
+      return false;
     }
 
     get smartTabGroupsPrefEnabled() {

@@ -20,7 +20,6 @@ MOZ_SRC_FILES += [
     "GroupsList.sys.mjs",
     "NewTabPagePreloading.sys.mjs",
     "OpenInTabsUtils.sys.mjs",
-    "SmartTabGrouping.sys.mjs",
     "TabMetrics.sys.mjs",
     "TabsList.sys.mjs",
     "TabUnloader.sys.mjs",

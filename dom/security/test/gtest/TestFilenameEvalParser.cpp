@@ -82,14 +82,6 @@ TEST(FilenameEvalParser, ResourceChrome)
     ASSERT_EQ(ret.first, kMozSrcURI);
     ASSERT_EQ(ret.second.value(), str);
   }
-  {
-    constexpr auto str =
-        "moz-src:///browser/components/genai/LinkPreview.sys.mjs"_ns;
-    FilenameTypeAndDetails ret =
-        nsContentSecurityUtils::FilenameToFilenameType(str, false);
-    ASSERT_EQ(ret.first, kMozSrcURI);
-    ASSERT_EQ(ret.second.value(), str);
-  }
 }
 
 TEST(FilenameEvalParser, BlobData)

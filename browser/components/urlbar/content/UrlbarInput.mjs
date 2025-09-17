@@ -41,8 +41,6 @@ import { SearchModeSwitcher } from "chrome://browser/content/urlbar/SearchModeSw
  */
 
 const lazy = XPCOMUtils.declareLazy({
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   ASRouter: "resource:///modules/asrouter/ASRouter.sys.mjs",
   BrowserSearchTelemetry:
     "moz-src:///browser/components/search/BrowserSearchTelemetry.sys.mjs",
@@ -675,9 +673,7 @@ ${
     if (this.isPrivate) {
       return "private";
     }
-    return lazy.AIWindow.isAIWindowActive(this.window)
-      ? "smartwindow"
-      : "classic";
+    return "classic";
   }
 
   blur() {

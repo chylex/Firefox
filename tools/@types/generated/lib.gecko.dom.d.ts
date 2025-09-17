@@ -14612,18 +14612,6 @@ interface LinkStyle {
     readonly sheet: StyleSheet | null;
 }
 
-interface LlamaRunner {
-    createGenerationStream(options: LlamaChatOptions): ReadableStream;
-    formatChat(options: LlamaFormatChatOptions): Promise<string>;
-    initialize(options: LlamaModelOptions, modelBlob: Blob): Promise<void>;
-}
-
-declare var LlamaRunner: {
-    prototype: LlamaRunner;
-    new(): LlamaRunner;
-    isInstance: IsInstance<LlamaRunner>;
-};
-
 interface LoadContextMixin {
     readonly associatedWindow: WindowProxy | null;
     readonly isContent: boolean;

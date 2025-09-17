@@ -1394,8 +1394,6 @@ pref("accessibility.typeaheadfind.flashBar", 1);
 pref("browser.preferences.experimental.hidden", false);
 // Whether we show the "More from Mozilla" section.
 pref("browser.preferences.moreFromMozilla", true);
-// Whether we show the "AI Controls" pane.
-pref("browser.preferences.aiControls", true);
 // Whether to show unavailable AI controls regardless of region/locale
 // restrictions. This is intended for localizers to be able to see the strings.
 pref("browser.preferences.aiControls.showUnavailable", false);
@@ -2205,80 +2203,6 @@ pref("sidebar.updatedBookmarks.enabled", true);
 #else
 pref("sidebar.updatedBookmarks.enabled", false);
 #endif
-
-pref("sidebar.notification.badge.aichat", false);
-
-pref("browser.ml.chat.enabled", true);
-pref("browser.ml.chat.hideLocalhost", true);
-pref("browser.ml.chat.maxLength", 7000);
-pref("browser.ml.chat.menu", true);
-pref("browser.ml.chat.page", true);
-pref("browser.ml.chat.page.footerBadge", true);
-pref("browser.ml.chat.page.menuBadge", true);
-pref("browser.ml.chat.prompt.prefix", '{"l10nId":"genai-prompt-prefix-selection"}');
-pref("browser.ml.chat.prompts.0", '{"id":"summarize","l10nId":"genai-prompts-summarize"}');
-pref("browser.ml.chat.prompts.1", '{"id":"explain","l10nId":"genai-prompts-explain","targeting":"contentType != \'page\'"}');
-pref("browser.ml.chat.prompts.3", '{"id":"quiz","l10nId":"genai-prompts-quiz","targeting":"(!provider|regExpMatch(\'gemini\') || region == \'US\') && contentType != \'page\'"}');
-pref("browser.ml.chat.prompts.4", '{"id":"proofread", "l10nId":"genai-prompts-proofread","targeting":"contentType != \'page\'"}');
-pref("browser.ml.chat.provider", "");
-pref("browser.ml.chat.shortcuts", true);
-pref("browser.ml.chat.shortcuts.custom", true);
-pref("browser.ml.chat.shortcuts.longPress", 60000);
-pref("browser.ml.chat.shortcut.onboardingMouseoverCount", 0);
-pref("browser.ml.chat.sidebar", true);
-
-pref("browser.ml.linkPreview.allowedLanguages", "en");
-pref("browser.ml.linkPreview.blockListEnabled", true);
-pref("browser.ml.linkPreview.collapsed", false);
-pref("browser.ml.linkPreview.enabled", true);
-pref("browser.ml.linkPreview.ignoreMs", 2000);
-pref("browser.ml.linkPreview.longPress", true);
-pref("browser.ml.linkPreview.longPressMs", 1000);
-pref("browser.ml.linkPreview.noKeyPointsRegions", "");
-pref("browser.ml.linkPreview.optin", false);
-pref("browser.ml.linkPreview.outputSentences", 3);
-pref("browser.ml.linkPreview.recentTypingMs", 1000);
-pref("browser.ml.linkPreview.shift", false);
-pref("browser.ml.linkPreview.shiftAlt", false);
-pref("browser.ml.linkPreview.supportedLocales", "en");
-
-pref("browser.ml.pageAssist.enabled", false);
-
-// Smart Window Feature
-pref("browser.smartwindow.apiKey", '');
-pref("browser.smartwindow.enabled", false);
-pref("browser.smartwindow.endpoint", "https://mlpa-prod-prod-mozilla.global.ssl.fastly.net/v1");
-pref("browser.smartwindow.memories.generateFromHistory", true);
-pref("browser.smartwindow.memories.generateFromConversation", true);
-pref("browser.smartwindow.memories.hasSeenMemories", false);
-pref("browser.smartwindow.memoriesLogLevel", "Warn");
-pref("browser.smartwindow.firstrun.autoAdvanceMS", 3000);
-pref("browser.smartwindow.firstrun.hasCompleted", false);
-pref("browser.smartwindow.showThemesNotice", true);
-pref("browser.smartwindow.sidebar.openByDefault", true);
-pref("browser.smartwindow.isDefaultWindow", false);
-pref("browser.smartwindow.firstrun.modelChoice", "");
-pref("browser.smartwindow.model", "");
-pref("browser.smartwindow.preferences.endpoint", "");
-pref("browser.smartwindow.firstrun.explainerURL", "https://www.firefox.com/en-US/smart-window/?v=product");
-pref("places.semanticHistory.smartwindow.featureGate", false);
-// Allow markdown tables in Smart Window responses
-// TODO (Bug 2039835): Remove pref and cleanup deprecated code paths.
-pref("browser.smartwindow.allowTables", true);
-
-// Smart Window: Merino World Cup Soccer tool call (bug 2038266)
-pref("browser.smartwindow.worldcup.enabled", true);
-pref("browser.smartwindow.worldcup.endpointURL", "https://merino.services.mozilla.com");
-pref("browser.smartwindow.worldcup.timeoutMs", 2000);
-
-// Smart Window Logging
-pref("browser.smartwindow.chatHistory.loglevel", "Error");
-pref("browser.smartwindow.chatStore.loglevel", "Error");
-pref("browser.smartwindow.conversation.logLevel", "Error");
-pref("browser.smartwindow.smartbarMentions.loglevel", "Error");
-
-// Smart Window user feedback collection
-pref("browser.smartwindow.userFeedbackCollection", false);
 
 // Block insecure active content on https pages
 pref("security.mixed_content.block_active_content", true);

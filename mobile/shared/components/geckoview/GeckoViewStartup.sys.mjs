@@ -233,15 +233,6 @@ export class GeckoViewStartup {
           ]);
         }
 
-        GeckoViewUtils.addLazyGetter(this, "GeckoViewAIFeatures", {
-          module: "resource://gre/modules/GeckoViewAIFeatures.sys.mjs",
-          ged: [
-            "GeckoView:AIFeature:ListFeatures",
-            "GeckoView:AIFeature:SetEnabled",
-            "GeckoView:AIFeature:MakeAvailable",
-          ],
-        });
-
         GeckoViewUtils.addLazyGetter(this, "GeckoViewTranslationsSettings", {
           module: "resource://gre/modules/GeckoViewTranslations.sys.mjs",
           ged: [

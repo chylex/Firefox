@@ -243,12 +243,6 @@ document.addEventListener(
           case "Tools:ClassicWindow":
             OpenBrowserWindow({ aiWindow: false });
             break;
-          case "Tools:AIWindow":
-            AIWindow.launchWindow(gBrowser?.selectedBrowser, true, "menu");
-            break;
-          case "Tools:ChatsHistory":
-            FirefoxViewHandler.openTab("chats");
-            break;
           case "Tools:Sanitize":
             Sanitizer.showUI(window);
             break;
@@ -304,18 +298,6 @@ document.addEventListener(
         case "viewBookmarksToolbarKb":
           BookmarkingUI.toggleBookmarksToolbar("shortcut");
           break;
-        case "viewGenaiChatSidebarKb": {
-          const pref = "browser.ml.chat.enabled";
-          const enabled = Services.prefs.getBoolPref(pref);
-          Glean.genaiChatbot.keyboardShortcut.record({
-            enabled,
-            sidebar: SidebarController.currentID,
-          });
-          if (enabled) {
-            SidebarController.toggle("viewGenaiChatSidebar");
-          }
-          break;
-        }
         case "toggleSidebarKb":
           if (SIDEBAR_REVAMP_ENABLED) {
             SidebarController.handleToolbarButtonClick();

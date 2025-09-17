@@ -224,45 +224,6 @@ let JSWINDOWACTORS = {
     enablePreference: "browser.aboutwelcome.enabled",
   },
 
-  AIChatContent: {
-    parent: {
-      esModuleURI:
-        "moz-src:///browser/components/aiwindow/ui/actors/AIChatContentParent.sys.mjs",
-    },
-    child: {
-      esModuleURI:
-        "moz-src:///browser/components/aiwindow/ui/actors/AIChatContentChild.sys.mjs",
-      events: {
-        "AIChatContent:DispatchFollowUp": { wantUntrusted: true },
-        "AIChatContent:Ready": { wantUntrusted: true },
-        "AIChatContent:DispatchAction": { wantUntrusted: true },
-        "AIChatContent:OpenLink": { wantUntrusted: true },
-        "AIChatContent:DispatchNewChat": { wantUntrusted: true },
-        "AIChatContent:AccountSignIn": { wantUntrusted: true },
-        "AIChatContent:ToolUIUpdate": { wantUntrusted: true },
-      },
-    },
-    allFrames: true,
-    matches: ["about:aichatcontent"],
-    remoteTypes: ["privilegedabout"],
-    enablePreference: "browser.smartwindow.enabled",
-  },
-
-  AISmartBar: {
-    parent: {
-      esModuleURI:
-        "moz-src:///browser/components/aiwindow/ui/actors/AISmartBarParent.sys.mjs",
-    },
-    child: {
-      esModuleURI:
-        "moz-src:///browser/components/aiwindow/ui/actors/AISmartBarChild.sys.mjs",
-    },
-    matches: ["chrome://browser/content/aiwindow/aiWindow.html"],
-    includeChrome: true,
-    allFrames: true,
-    enablePreference: "browser.smartwindow.enabled",
-  },
-
   BackupUI: {
     parent: {
       esModuleURI: "resource:///actors/BackupUIParent.sys.mjs",
@@ -506,43 +467,6 @@ let JSWINDOWACTORS = {
     allFrames: true,
   },
 
-  GenAI: {
-    parent: {
-      esModuleURI: "resource:///actors/GenAIParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource:///actors/GenAIChild.sys.mjs",
-      events: {
-        mousedown: {},
-        mouseup: {},
-      },
-    },
-    allFrames: true,
-    onAddActor(register, unregister) {
-      let isRegistered = false;
-
-      // Register the actor if we have a provider or support provider-less
-      const maybeRegister = () => {
-        if (
-          Services.prefs.getCharPref("browser.ml.chat.provider", "") ||
-          Services.prefs.getBoolPref("browser.ml.chat.page")
-        ) {
-          if (!isRegistered) {
-            register();
-            isRegistered = true;
-          }
-        } else if (isRegistered) {
-          unregister();
-          isRegistered = false;
-        }
-      };
-
-      Services.prefs.addObserver("browser.ml.chat.page", maybeRegister);
-      Services.prefs.addObserver("browser.ml.chat.provider", maybeRegister);
-      maybeRegister();
-    },
-  },
-
   LightweightTheme: {
     child: {
       esModuleURI: "resource:///actors/LightweightThemeChild.sys.mjs",
@@ -564,7 +488,6 @@ let JSWINDOWACTORS = {
       "chrome://browser/content/sidebar/sidebar-history.html",
       "chrome://browser/content/sidebar/sidebar-customize.html",
       "chrome://browser/content/sidebar/sidebar-syncedtabs.html",
-      "chrome://browser/content/genai/chat.html",
       "about:firefoxview",
       "about:editprofile",
       "about:deleteprofile",
@@ -592,28 +515,6 @@ let JSWINDOWACTORS = {
     },
 
     messageManagerGroups: ["browsers"],
-  },
-
-  LinkPreview: {
-    parent: {
-      esModuleURI: "resource:///actors/LinkPreviewParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource:///actors/LinkPreviewChild.sys.mjs",
-    },
-    includeChrome: true,
-    enablePreference: "browser.ml.linkPreview.enabled",
-  },
-
-  PageAssist: {
-    parent: {
-      esModuleURI: "resource:///actors/PageAssistParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource:///actors/PageAssistChild.sys.mjs",
-    },
-    includeChrome: true,
-    enablePreference: "browser.ml.pageAssist.enabled",
   },
 
   PageInfo: {

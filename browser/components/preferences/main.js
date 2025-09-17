@@ -27,7 +27,6 @@ const { Multilingual } = ChromeUtils.importESModule(
 ChromeUtils.defineESModuleGetters(this, {
   BackgroundUpdate: "resource://gre/modules/BackgroundUpdate.sys.mjs",
   UpdateListener: "resource://gre/modules/UpdateListener.sys.mjs",
-  LinkPreview: "moz-src:///browser/components/genai/LinkPreview.sys.mjs",
   MigrationUtils: "resource:///modules/MigrationUtils.sys.mjs",
   TranslationsParent: "resource://gre/actors/TranslationsParent.sys.mjs",
   TranslationsUtils:
@@ -96,16 +95,6 @@ Preferences.addAll([
   { id: "browser.startup.page", type: "int" },
   { id: "browser.startup.windowsLaunchOnLogin.enabled", type: "bool" },
   { id: "browser.privatebrowsing.autostart", type: "bool" },
-
-  // AI Controls, these pref values can affect settings on the main pane and
-  // have base Settings here
-  { id: "browser.ai.control.default", type: "string" },
-  { id: "browser.ai.control.translations", type: "string" },
-  { id: "browser.ai.control.pdfjsAltText", type: "string" },
-  { id: "browser.ai.control.smartTabGroups", type: "string" },
-  { id: "browser.ai.control.linkPreviewKeyPoints", type: "string" },
-  { id: "browser.ai.control.sidebarChatbot", type: "string" },
-  { id: "browser.ai.control.smartWindow", type: "string" },
 
   // Update
   { id: "browser.preferences.advanced.selectedTabIndex", type: "int" },
@@ -551,36 +540,6 @@ Preferences.addSetting({
       setDefaultButton.disabled = false;
     });
   },
-});
-
-// AI Control pref settings
-Preferences.addSetting({
-  id: "aiControlDefault",
-  pref: "browser.ai.control.default",
-});
-Preferences.addSetting({
-  id: "aiControlTranslations",
-  pref: "browser.ai.control.translations",
-});
-Preferences.addSetting({
-  id: "aiControlPdfjsAltText",
-  pref: "browser.ai.control.pdfjsAltText",
-});
-Preferences.addSetting({
-  id: "aiControlSmartTabGroups",
-  pref: "browser.ai.control.smartTabGroups",
-});
-Preferences.addSetting({
-  id: "aiControlLinkPreviews",
-  pref: "browser.ai.control.linkPreviewKeyPoints",
-});
-Preferences.addSetting({
-  id: "aiControlSidebarChatbot",
-  pref: "browser.ai.control.sidebarChatbot",
-});
-Preferences.addSetting({
-  id: "aiControlSmartWindow",
-  pref: "browser.ai.control.smartWindow",
 });
 
 function createDefaultBrowserConfig({

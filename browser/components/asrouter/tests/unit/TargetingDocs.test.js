@@ -50,7 +50,6 @@ describe("ASRTargeting docs", () => {
       "messageImpressions",
       "screenImpressions",
       "browserIsSelected",
-      "isAIWindow",
       "isFirstRun",
       "isFirstStartup",
       "isNonStubFirstRun",

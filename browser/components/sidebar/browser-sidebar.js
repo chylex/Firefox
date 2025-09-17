@@ -13,8 +13,6 @@ const { DeferredTask } = ChromeUtils.importESModule(
 );
 
 const toolsNameMap = {
-  viewGenaiChatSidebar: "aichat",
-  viewGenaiPageAssistSidebar: "aipageassist",
   viewTabsSidebar: "syncedtabs",
   viewHistorySidebar: "history",
   viewBookmarksSidebar: "bookmarks",
@@ -105,7 +103,7 @@ var SidebarController = {
   },
 
   isAIWindow() {
-    return this.AIWindow.isAIWindowActive(window);
+    return false;
   },
 
   get sidebars() {
@@ -183,40 +181,6 @@ var SidebarController = {
         }),
       ],
     ]);
-
-    this.registerPrefSidebar(
-      "browser.ml.chat.enabled",
-      "viewGenaiChatSidebar",
-      {
-        name: "aichat",
-        elementId: "sidebar-switcher-genai-chat",
-        url: "chrome://browser/content/genai/chat.html",
-        keyId: "viewGenaiChatSidebarKb",
-        menuId: "menu_genaiChatSidebar",
-        menuL10nId: "menu-view-genai-chat",
-        // Bug 1900915 to expose as conditional tool
-        revampL10nId: "sidebar-menu-genai-chat-label",
-        iconUrl: "chrome://global/skin/icons/highlights.svg",
-        gleanClickEvent: Glean.sidebar.chatbotIconClick,
-        toolContextMenuId: "aichat",
-        permissions: true,
-        hideInAIWindow: true,
-      }
-    );
-
-    this.registerPrefSidebar(
-      "browser.ml.pageAssist.enabled",
-      "viewGenaiPageAssistSidebar",
-      {
-        name: "aipageassist",
-        elementId: "sidebar-switcher-genai-page-assist",
-        url: "chrome://browser/content/genai/pageAssist.html",
-        menuId: "menu_genaiPageAssistSidebar",
-        menuL10nId: "menu-view-genai-page-assist",
-        revampL10nId: "sidebar-menu-genai-page-assist-label",
-        iconUrl: "chrome://browser/skin/reader-mode.svg",
-      }
-    );
 
     this.registerPrefSidebar(
       "browser.contextual-password-manager.enabled",
@@ -305,7 +269,6 @@ var SidebarController = {
   _verticalNewTabListenerAdded: false,
   _localesObserverAdded: false,
   _mainResizeObserverAdded: false,
-  _aiWindowObserverAdded: false,
   _mainResizeObserver: null,
   _ongoingAnimations: [],
 
@@ -544,10 +507,6 @@ var SidebarController = {
       Services.obs.addObserver(this, "tabstrip-orientation-change");
       this._tabstripOrientationObserverAdded = true;
     }
-    if (!this._aiWindowObserverAdded) {
-      Services.obs.addObserver(this, "ai-window-state-changed");
-      this._aiWindowObserverAdded = true;
-    }
 
     requestIdleCallback(() => {
       const windowPrivacyMatches =
@@ -597,7 +556,6 @@ var SidebarController = {
     Services.obs.removeObserver(this, "tabstrip-orientation-change");
     Services.obs.removeObserver(this, "ai-window-state-changed");
     delete this._tabstripOrientationObserverAdded;
-    delete this._aiWindowObserverAdded;
 
     CustomizableUI.removeListener(this);
 
@@ -2585,8 +2543,6 @@ var SidebarController = {
 };
 
 ChromeUtils.defineESModuleGetters(SidebarController, {
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   SidebarManager:
     "moz-src:///browser/components/sidebar/SidebarManager.sys.mjs",
   SidebarState: "moz-src:///browser/components/sidebar/SidebarState.sys.mjs",

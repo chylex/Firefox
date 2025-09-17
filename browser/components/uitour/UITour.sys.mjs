@@ -8,8 +8,6 @@ const lazy = {};
 
 ChromeUtils.defineESModuleGetters(lazy, {
   AboutReaderParent: "resource:///actors/AboutReaderParent.sys.mjs",
-  AIWindow:
-    "moz-src:///browser/components/aiwindow/ui/modules/AIWindow.sys.mjs",
   BrowserUsageTelemetry: "resource:///modules/BrowserUsageTelemetry.sys.mjs",
   CustomizableUI:
     "moz-src:///browser/components/customizableui/CustomizableUI.sys.mjs",
@@ -487,26 +485,6 @@ export var UITour = {
                 Services.scriptSecurityManager.createNullPrincipal({}),
             });
           });
-        break;
-      }
-
-      case "showFirefoxAccountsForAIWindow": {
-        // if user "Blocked" Smart Window feature from AI Control or global AI Control default
-        // override Smart Window feature to "available"
-        if (lazy.AIWindow.isBlocked) {
-          Services.prefs.setStringPref(
-            "browser.ai.control.smartWindow",
-            "available"
-          );
-        }
-
-        lazy.AIWindow.launchWindow(browser).then(success => {
-          if (!success) {
-            lazy.log.warn(
-              "showFirefoxAccountsForAIWindow: Failed to launch Smart Window"
-            );
-          }
-        });
         break;
       }
 

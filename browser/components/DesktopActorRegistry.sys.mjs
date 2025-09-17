@@ -415,39 +415,6 @@ let JSWINDOWACTORS = {
     allFrames: true,
   },
 
-  GenAI: {
-    parent: {
-      esModuleURI: "resource:///actors/GenAIParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource:///actors/GenAIChild.sys.mjs",
-      events: {
-        mousedown: {},
-        mouseup: {},
-      },
-    },
-    allFrames: true,
-    onAddActor(register, unregister) {
-      let isRegistered = false;
-
-      // Register the actor if we have a provider set and not yet registered
-      const maybeRegister = () => {
-        if (Services.prefs.getCharPref("browser.ml.chat.provider", "")) {
-          if (!isRegistered) {
-            register();
-            isRegistered = true;
-          }
-        } else if (isRegistered) {
-          unregister();
-          isRegistered = false;
-        }
-      };
-
-      Services.prefs.addObserver("browser.ml.chat.provider", maybeRegister);
-      maybeRegister();
-    },
-  },
-
   LightweightTheme: {
     child: {
       esModuleURI: "resource:///actors/LightweightThemeChild.sys.mjs",
@@ -491,17 +458,6 @@ let JSWINDOWACTORS = {
     },
 
     messageManagerGroups: ["browsers"],
-  },
-
-  LinkPreview: {
-    parent: {
-      esModuleURI: "resource:///actors/LinkPreviewParent.sys.mjs",
-    },
-    child: {
-      esModuleURI: "resource:///actors/LinkPreviewChild.sys.mjs",
-    },
-    includeChrome: true,
-    enablePreference: "browser.ml.linkPreview.enabled",
   },
 
   PageInfo: {

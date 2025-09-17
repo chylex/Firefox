@@ -14,13 +14,6 @@
     "resource:///modules/sessionstore/TabStateFlusher.sys.mjs"
   );
 
-  ChromeUtils.importESModule(
-    "chrome://browser/content/genai/content/model-optin.mjs",
-    {
-      global: "current",
-    }
-  );
-
   class MozTabbrowserTabGroupMenu extends MozXULElement {
     static COLORS = [
       "blue",
@@ -479,11 +472,7 @@
     }
 
     get smartTabGroupsEnabled() {
-      return (
-        this.smartTabGroupsUserEnabled &&
-        this.smartTabGroupsFeatureConfigEnabled &&
-        !PrivateBrowsingUtils.isWindowPrivate(this.ownerGlobal)
-      );
+      return false;
     }
 
     get smartTabGroupsPrefEnabled() {

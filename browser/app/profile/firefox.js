@@ -2093,34 +2093,6 @@ pref("sidebar.expandOnHover", true);
 pref("sidebar.old-sidebar.has-used", false);
 pref("sidebar.new-sidebar.has-used", false);
 
-pref("browser.ml.chat.enabled", true);
-pref("browser.ml.chat.hideLocalhost", true);
-pref("browser.ml.chat.prompt.prefix", '{"l10nId":"genai-prompt-prefix-selection"}');
-pref("browser.ml.chat.prompts.0", '{"id":"summarize","l10nId":"genai-prompts-summarize"}');
-pref("browser.ml.chat.prompts.1", '{"id":"explain","l10nId":"genai-prompts-explain"}');
-pref("browser.ml.chat.prompts.2", '{"id":"simplify","l10nId":"genai-prompts-simplify","targeting":"channel==\'nightly\'"}');
-pref("browser.ml.chat.prompts.3", '{"id":"quiz","l10nId":"genai-prompts-quiz","targeting":"!provider|regExpMatch(\'gemini\') || region == \'US\'"}');
-pref("browser.ml.chat.prompts.4", '{"id":"proofread", "l10nId":"genai-prompts-proofread"}');
-pref("browser.ml.chat.provider", "");
-pref("browser.ml.chat.shortcuts", true);
-pref("browser.ml.chat.shortcuts.custom", true);
-pref("browser.ml.chat.shortcuts.longPress", 60000);
-pref("browser.ml.chat.sidebar", true);
-
-pref("browser.ml.linkPreview.allowedLanguages", "en");
-pref("browser.ml.linkPreview.blockListEnabled", true);
-pref("browser.ml.linkPreview.collapsed", false);
-pref("browser.ml.linkPreview.enabled", false);
-pref("browser.ml.linkPreview.ignoreMs", 2000);
-pref("browser.ml.linkPreview.longPress", true);
-pref("browser.ml.linkPreview.longPressMs", 1000);
-pref("browser.ml.linkPreview.noKeyPointsRegions", "AD,AT,BE,BG,CH,CY,CZ,DE,DK,EE,ES,FI,FR,GR,HR,HU,IE,IS,IT,LI,LT,LU,LV,MT,NL,NO,PL,PT,RO,SE,SI,SK");
-pref("browser.ml.linkPreview.optin", false);
-pref("browser.ml.linkPreview.outputSentences", 3);
-pref("browser.ml.linkPreview.recentTypingMs", 1000);
-pref("browser.ml.linkPreview.shift", true);
-pref("browser.ml.linkPreview.shiftAlt", false);
-
 // Block insecure active content on https pages
 pref("security.mixed_content.block_active_content", true);
 

@@ -16,11 +16,6 @@ prefs = [
   "sidebar.revamp=false",
 ]
 
-["browser_MLSuggest_integration.js"]
-support-files = [
-  "!/toolkit/components/ml/tests/browser/head.js",
-]
-
 ["browser_UrlbarInput_formatValue.js"]
 
 ["browser_UrlbarInput_formatValue_detachedTab.js"]

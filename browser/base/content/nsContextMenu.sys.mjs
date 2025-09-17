@@ -13,8 +13,6 @@ ChromeUtils.defineESModuleGetters(lazy, {
     "resource://gre/modules/ContextualIdentityService.sys.mjs",
   DevToolsShim: "chrome://devtools-startup/content/DevToolsShim.sys.mjs",
   E10SUtils: "resource://gre/modules/E10SUtils.sys.mjs",
-  GenAI: "resource:///modules/GenAI.sys.mjs",
-  LinkPreview: "moz-src:///browser/components/genai/LinkPreview.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
   LoginManagerContextMenu:
     "resource://gre/modules/LoginManagerContextMenu.sys.mjs",
@@ -565,10 +563,6 @@ export class nsContextMenu {
       shouldShow && !isWindowPrivate && showContainers
     );
     this.showItem("context-openlinkincurrent", this.onPlainTextLink);
-    this.showItem(
-      "context-previewlink",
-      lazy.LinkPreview.shouldShowContextMenu(this)
-    );
   }
 
   initNavigationItems() {
@@ -932,10 +926,6 @@ export class nsContextMenu {
 
     this.showAndFormatSearchContextItem();
     this.showTranslateSelectionItem();
-    lazy.GenAI.buildAskChatMenu(
-      document.getElementById("context-ask-chat"),
-      this
-    );
 
     // srcdoc cannot be opened separately due to concerns about web
     // content with about:srcdoc in location bar masquerading as trusted
@@ -2306,12 +2296,6 @@ export class nsContextMenu {
       linkURL,
       this.actor.manager.browsingContext.currentWindowGlobal
     );
-  }
-
-  previewLink(url = this.linkURL) {
-    // If we're in a view-source tab, remove the view-source: prefix
-    url = url.replace(/^view-source:/, "");
-    lazy.LinkPreview.handleContextMenuClick(url, this);
   }
 
   /**

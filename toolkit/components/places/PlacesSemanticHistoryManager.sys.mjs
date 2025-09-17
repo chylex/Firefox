@@ -257,11 +257,7 @@ export class PlacesSemanticHistoryManager {
    *   else false
    */
   get canUseSemanticSearch() {
-    return (
-      this.qualifiedForSemanticSearch &&
-      Services.prefs.getBoolPref("browser.ml.enable", true) &&
-      Services.prefs.getBoolPref("places.semanticHistory.featureGate", false)
-    );
+    return false;
   }
 
   /**

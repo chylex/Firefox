@@ -68,12 +68,6 @@
       "chrome://browser/content/firefoxview/syncedtabs-tab-list.mjs": [
         "browser/components/firefoxview/syncedtabs-tab-list.mjs"
       ],
-      "chrome://browser/content/genai/content/link-preview-card.mjs": [
-        "browser/components/genai/content/link-preview-card.mjs"
-      ],
-      "chrome://browser/content/genai/content/model-optin.mjs": [
-        "browser/components/genai/content/model-optin.mjs"
-      ],
       "chrome://browser/content/migration/migration-wizard-constants.mjs": [
         "browser/components/migration/content/migration-wizard-constants.mjs"
       ],
@@ -256,54 +250,6 @@
       ],
       "chrome://global/content/megalist/components/password-card/password-card.mjs": [
         "toolkit/components/satchel/megalist/content/components/password-card/password-card.mjs"
-      ],
-      "chrome://global/content/ml/BlockWords.sys.mjs": [
-        "toolkit/components/ml/content/BlockWords.sys.mjs"
-      ],
-      "chrome://global/content/ml/ClusterAlgos.sys.mjs": [
-        "toolkit/components/ml/content/ClusterAlgos.sys.mjs"
-      ],
-      "chrome://global/content/ml/EmbeddingsGenerator.sys.mjs": [
-        "toolkit/components/ml/content/nlp/EmbeddingsGenerator.sys.mjs"
-      ],
-      "chrome://global/content/ml/EngineProcess.sys.mjs": [
-        "toolkit/components/ml/content/EngineProcess.sys.mjs"
-      ],
-      "chrome://global/content/ml/HttpInference.sys.mjs": [
-        "toolkit/components/ml/content/HttpInference.sys.mjs"
-      ],
-      "chrome://global/content/ml/ModelHub.sys.mjs": [
-        "toolkit/components/ml/content/ModelHub.sys.mjs"
-      ],
-      "chrome://global/content/ml/OPFS.sys.mjs": [
-        "toolkit/components/ml/content/OPFS.sys.mjs"
-      ],
-      "chrome://global/content/ml/StopWords.sys.mjs": [
-        "toolkit/components/ml/content/nlp/StopWords.sys.mjs"
-      ],
-      "chrome://global/content/ml/backends/LlamaPipeline.mjs": [
-        "toolkit/components/ml/content/backends/LlamaPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/ONNXPipeline.mjs": [
-        "toolkit/components/ml/content/backends/ONNXPipeline.mjs"
-      ],
-      "chrome://global/content/ml/backends/Pipeline.mjs": [
-        "toolkit/components/ml/content/backends/Pipeline.mjs"
-      ],
-      "chrome://global/content/ml/ort.webgpu-dev.mjs": [
-        "toolkit/components/ml/vendor/ort.webgpu-dev.mjs"
-      ],
-      "chrome://global/content/ml/transformers-dev.js": [
-        "toolkit/components/ml/vendor/transformers-dev.js"
-      ],
-      "chrome://global/content/ml/transformers.js": [
-        "toolkit/components/ml/vendor/transformers.js"
-      ],
-      "chrome://global/content/ml/wllama-module-dev.mjs": [
-        "toolkit/components/ml/vendor/wllama-module-dev.mjs"
-      ],
-      "chrome://global/content/ml/wllama-module.mjs": [
-        "toolkit/components/ml/vendor/wllama-module.mjs"
       ],
       "chrome://global/content/net-error-card.mjs": [
         "toolkit/content/net-error-card.mjs"
@@ -1106,9 +1052,6 @@
       "resource:///modules/FirefoxProfileMigrator.sys.mjs": [
         "browser/components/migration/FirefoxProfileMigrator.sys.mjs"
       ],
-      "resource:///modules/GenAI.sys.mjs": [
-        "browser/components/genai/GenAI.sys.mjs"
-      ],
       "resource:///modules/HeadlessShell.sys.mjs": [
         "browser/components/shell/HeadlessShell.sys.mjs"
       ],
@@ -1633,9 +1576,6 @@
       ],
       "resource:///modules/urlbar/private/GeolocationUtils.sys.mjs": [
         "browser/components/urlbar/private/GeolocationUtils.sys.mjs"
-      ],
-      "resource:///modules/urlbar/private/MLSuggest.sys.mjs": [
-        "browser/components/urlbar/private/MLSuggest.sys.mjs"
       ],
       "resource:///modules/urlbar/private/SuggestFeature.sys.mjs": [
         "browser/components/urlbar/private/SuggestFeature.sys.mjs"

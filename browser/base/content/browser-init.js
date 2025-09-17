@@ -1039,11 +1039,6 @@ var gBrowserInit = {
       ToolbarKeyboardNavigator.uninit();
     }
 
-    // Bug 1952900 to allow switching to unload category without leaking
-    ChromeUtils.importESModule(
-      "moz-src:///browser/components/genai/LinkPreview.sys.mjs"
-    ).LinkPreview.teardown(window);
-
     FirefoxViewHandler.uninit();
 
     // Now either cancel delayedStartup, or clean up the services initialized from

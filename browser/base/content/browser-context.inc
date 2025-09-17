@@ -99,9 +99,6 @@
                 class="context-menu-open-link"
                 data-l10n-id="main-context-menu-open-link-new-private-window"
                 />
-      <menuitem id="context-previewlink"
-                data-l10n-id="main-context-menu-preview-link"
-                />
       <menuseparator id="context-sep-open"/>
       <menuitem id="context-bookmarklink"
                 data-l10n-id="main-context-menu-bookmark-link-2"
@@ -360,7 +357,6 @@
       <menuitem id="context-searchselect-private"/>
       <menuitem id="context-translate-selection"
                 data-l10n-id="main-context-menu-translate-selection"/>
-      <menu id="context-ask-chat"/>
 
       <menuseparator id="frame-sep"/>
       <menu id="frame" data-l10n-id="main-context-menu-frame">

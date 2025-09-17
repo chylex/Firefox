@@ -152,22 +152,6 @@ var SidebarController = {
     ]);
 
     this.registerPrefSidebar(
-      "browser.ml.chat.enabled",
-      "viewGenaiChatSidebar",
-      {
-        elementId: "sidebar-switcher-genai-chat",
-        url: "chrome://browser/content/genai/chat.html",
-        keyId: "viewGenaiChatSidebarKb",
-        menuId: "menu_genaiChatSidebar",
-        menuL10nId: "menu-view-genai-chat",
-        // Bug 1900915 to expose as conditional tool
-        revampL10nId: "sidebar-menu-genai-chat-label",
-        iconUrl: "chrome://global/skin/icons/highlights.svg",
-        gleanClickEvent: Glean.sidebar.chatbotIconClick,
-      }
-    );
-
-    this.registerPrefSidebar(
       "browser.contextual-password-manager.enabled",
       "viewCPMSidebar",
       {

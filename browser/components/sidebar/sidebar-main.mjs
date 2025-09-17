@@ -16,7 +16,6 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   ASRouter: "resource:///modules/asrouter/ASRouter.sys.mjs",
   ShortcutUtils: "resource://gre/modules/ShortcutUtils.sys.mjs",
-  GenAI: "resource:///modules/GenAI.sys.mjs",
 });
 
 const TOOLS_OVERFLOW_LIMIT = 5;
@@ -368,15 +367,6 @@ export default class SidebarMain extends MozLitElement {
   }
 
   entrypointTemplate(action) {
-    let providerInfo;
-    if (action.view === "viewGenaiChatSidebar") {
-      providerInfo = lazy.GenAI.currentChatProviderInfo;
-      action.iconUrl = providerInfo.iconUrl;
-      // Sets the tooltip text for the action based on the chatbot provider's name.
-      // This tooltip text is also used to set the action label
-      action.tooltiptext = providerInfo.name;
-    }
-
     if (action.disabled || action.hidden) {
       return null;
     }
@@ -396,17 +386,6 @@ export default class SidebarMain extends MozLitElement {
       const { shortcutId, openl10nId, close10nId } = tooltipInfo;
       let l10nId = isActiveView ? close10nId : openl10nId;
       let tooltipData = {};
-
-      if (action.view === "viewGenaiChatSidebar") {
-        const provider = providerInfo?.name;
-
-        if (provider) {
-          tooltipData.provider = provider;
-          l10nId = isActiveView
-            ? tooltipInfo.closeProviderl10nId
-            : tooltipInfo.openProviderl10nId;
-        }
-      }
 
       if (shortcutId) {
         const shortcut = lazy.ShortcutUtils.prettifyShortcut(

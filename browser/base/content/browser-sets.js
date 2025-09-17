@@ -272,18 +272,6 @@ document.addEventListener(
         case "viewBookmarksToolbarKb":
           BookmarkingUI.toggleBookmarksToolbar("shortcut");
           break;
-        case "viewGenaiChatSidebarKb": {
-          const pref = "browser.ml.chat.enabled";
-          const enabled = Services.prefs.getBoolPref(pref);
-          Glean.genaiChatbot.keyboardShortcut.record({
-            enabled,
-            sidebar: SidebarController.currentID,
-          });
-          if (enabled) {
-            SidebarController.toggle("viewGenaiChatSidebar");
-          }
-          break;
-        }
         case "toggleSidebarKb":
           if (SIDEBAR_REVAMP_ENABLED) {
             SidebarController.handleToolbarButtonClick();

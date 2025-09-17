@@ -580,7 +580,6 @@ const PREF_URLBAR_DEFAULTS = new Map([
 
 const PREF_OTHER_DEFAULTS = new Map([
   ["browser.fixup.dns_first_for_single_words", false],
-  ["browser.ml.enable", false],
   ["browser.search.suggest.enabled", true],
   ["browser.search.suggest.enabled.private", false],
   ["keyword.enabled", true],

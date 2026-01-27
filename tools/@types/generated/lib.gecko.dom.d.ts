@@ -16080,7 +16080,6 @@ interface Navigator extends GlobalPrivacyControl, NavigatorAutomationInformation
     readonly pdfViewerEnabled: boolean;
     readonly permissions: Permissions;
     readonly plugins: PluginArray;
-    readonly privateAttribution: PrivateAttribution;
     readonly productSub: string;
     readonly serviceWorker: ServiceWorkerContainer;
     readonly testTrialGatedAttribute: boolean;
@@ -17534,17 +17533,6 @@ declare var PrecompiledScript: {
 };
 
 /** Available only in secure contexts. */
-interface PrivateAttribution {
-    measureConversion(options: PrivateAttributionConversionOptions): void;
-    saveImpression(options: PrivateAttributionImpressionOptions): void;
-}
-
-declare var PrivateAttribution: {
-    prototype: PrivateAttribution;
-    new(): PrivateAttribution;
-    isInstance: IsInstance<PrivateAttribution>;
-};
-
 interface ProcessMessageManager extends MessageSender, ProcessScriptLoader {
     readonly isInProcess: boolean;
     readonly osPid: number;

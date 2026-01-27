@@ -10327,13 +10327,6 @@ interface nsIPrefetchService extends nsISupports {
   cancelPrefetchPreloadURI(aURI: nsIURI, aSource: Node): void;
 }
 
-// https://searchfox.org/firefox-main/source/dom/privateattribution/nsIPrivateAttributionService.idl
-
-interface nsIPrivateAttributionService extends nsISupports {
-  onAttributionEvent(sourceHost: string, type: string, index: u32, ad: string, targetHost: string): void;
-  onAttributionConversion(targetHost: string, task: string, histogramSize: u32, lookbackDays: u32, impressionType: string, ads: string[], sourceHosts: string[]): void;
-}
-
 // https://searchfox.org/firefox-main/source/tools/profiler/gecko/nsIProfiler.idl
 
 interface nsIProfilerStartParams extends nsISupports {

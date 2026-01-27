@@ -25,18 +25,13 @@ PrivateAttribution::PrivateAttribution(nsIGlobalObject* aGlobal)
 
 JSObject* PrivateAttribution::WrapObject(JSContext* aCx,
                                          JS::Handle<JSObject*> aGivenProto) {
-  return PrivateAttribution_Binding::Wrap(aCx, this, aGivenProto);
+  return nullptr;
 }
 
 PrivateAttribution::~PrivateAttribution() = default;
 
 bool PrivateAttribution::ShouldRecord() {
-#ifdef MOZ_TELEMETRY_REPORTING
-  return (StaticPrefs::dom_private_attribution_submission_enabled() &&
-          StaticPrefs::datareporting_healthreport_uploadEnabled());
-#else
   return false;
-#endif
 }
 
 bool PrivateAttribution::GetSourceHostIfNonPrivate(nsACString& aSourceHost,
@@ -60,82 +55,8 @@ bool PrivateAttribution::GetSourceHostIfNonPrivate(nsACString& aSourceHost,
 }
 
 void PrivateAttribution::SaveImpression(
-    const PrivateAttributionImpressionOptions& aOptions, ErrorResult& aRv) {
-  nsAutoCString source;
-  if (!GetSourceHostIfNonPrivate(source, aRv)) {
-    return;
-  }
-
-  if (!ValidateHost(aOptions.mTarget, aRv)) {
-    return;
-  }
-
-  if (!ShouldRecord()) {
-    return;
-  }
-
-  if (XRE_IsParentProcess()) {
-    nsCOMPtr<nsIPrivateAttributionService> pa =
-        components::PrivateAttribution::Service();
-    if (NS_WARN_IF(!pa)) {
-      return;
-    }
-    pa->OnAttributionEvent(source, GetEnumString(aOptions.mType),
-                           aOptions.mIndex, aOptions.mAd, aOptions.mTarget);
-    return;
-  }
-
-  auto* content = ContentChild::GetSingleton();
-  if (NS_WARN_IF(!content)) {
-    return;
-  }
-  content->SendAttributionEvent(source, aOptions.mType, aOptions.mIndex,
-                                aOptions.mAd, aOptions.mTarget);
-}
-
+    const PrivateAttributionImpressionOptions& aOptions, ErrorResult& aRv) {}
 void PrivateAttribution::MeasureConversion(
-    const PrivateAttributionConversionOptions& aOptions, ErrorResult& aRv) {
-  nsAutoCString source;
-  if (!GetSourceHostIfNonPrivate(source, aRv)) {
-    return;
-  }
-  for (const nsACString& host : aOptions.mSources) {
-    if (!ValidateHost(host, aRv)) {
-      return;
-    }
-  }
-
-  if (!ShouldRecord()) {
-    return;
-  }
-
-  if (XRE_IsParentProcess()) {
-    nsCOMPtr<nsIPrivateAttributionService> pa =
-        components::PrivateAttribution::Service();
-    if (NS_WARN_IF(!pa)) {
-      return;
-    }
-    pa->OnAttributionConversion(
-        source, aOptions.mTask, aOptions.mHistogramSize,
-        aOptions.mLookbackDays.WasPassed() ? aOptions.mLookbackDays.Value() : 0,
-        aOptions.mImpression.WasPassed()
-            ? GetEnumString(aOptions.mImpression.Value())
-            : EmptyCString(),
-        aOptions.mAds, aOptions.mSources);
-    return;
-  }
-
-  auto* content = ContentChild::GetSingleton();
-  if (NS_WARN_IF(!content)) {
-    return;
-  }
-  content->SendAttributionConversion(
-      source, aOptions.mTask, aOptions.mHistogramSize,
-      aOptions.mLookbackDays.WasPassed() ? Some(aOptions.mLookbackDays.Value())
-                                         : Nothing(),
-      aOptions.mImpression.WasPassed() ? Some(aOptions.mImpression.Value())
-                                       : Nothing(),
-      aOptions.mAds, aOptions.mSources);
-}
+    const PrivateAttributionConversionOptions& aOptions, ErrorResult& aRv) {}
 
 }  // namespace mozilla::dom

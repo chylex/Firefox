@@ -43,7 +43,6 @@ class Clipboard;
 class LockManager;
 class ModelContext;
 class NavigatorLogin;
-class PrivateAttribution;
 class HTMLMediaElement;
 class AudioContext;
 class WakeLockJS;
@@ -220,7 +219,6 @@ class Navigator final : public nsISupports, public nsWrapperCache {
   dom::LockManager* Locks();
   NavigatorLogin* Login();
   dom::ModelContext* ModelContext();
-  dom::PrivateAttribution* PrivateAttribution();
 
   static bool Webdriver();
 
@@ -321,7 +319,6 @@ class Navigator final : public nsISupports, public nsWrapperCache {
   RefPtr<LockManager> mLocks;
   RefPtr<NavigatorLogin> mLogin;
   RefPtr<dom::ModelContext> mModelContext;
-  RefPtr<dom::PrivateAttribution> mPrivateAttribution;
   RefPtr<dom::UserActivation> mUserActivation;
   RefPtr<dom::WakeLockJS> mWakeLock;
 };

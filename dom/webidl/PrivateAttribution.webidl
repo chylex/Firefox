@@ -20,9 +20,3 @@ dictionary PrivateAttributionConversionOptions {
   sequence<DOMString> ads = [];
   sequence<UTF8String> sources = [];
 };
-
-[Trial="PrivateAttributionV2", SecureContext, Exposed=Window]
-interface PrivateAttribution {
-  [Throws] undefined saveImpression(PrivateAttributionImpressionOptions options);
-  [Throws] undefined measureConversion(PrivateAttributionConversionOptions options);
-};
